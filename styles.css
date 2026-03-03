@@ -1,0 +1,57 @@
+:root {
+    --primary-yellow: #fed700;
+    --dark-bg: #1e1e27;
+    --text-dark: #333;
+    --text-light: #fff;
+    --accent-red: #d10024;
+    --gray-bg: #f4f4f4;
+    --transition: all 0.3s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+body { background-color: var(--gray-bg); color: var(--text-dark); line-height: 1.6; }
+
+/* Navigation */
+header { background-color: var(--dark-bg); color: var(--text-light); display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.logo h1 { font-size: 2rem; font-weight: 800; text-transform: uppercase; margin: 0;}
+.logo span { color: var(--primary-yellow); }
+nav ul { list-style: none; display: flex; gap: 25px; }
+nav ul li a { text-decoration: none; color: var(--text-light); font-weight: 600; transition: var(--transition); }
+nav ul li a:hover, nav ul li a.active { color: var(--primary-yellow); }
+.cart { background: var(--primary-yellow); color: var(--dark-bg); padding: 10px 20px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: var(--transition); }
+.cart:hover { background: #fff; }
+
+/* Hero Section */
+.hero { background: #1e1e27; height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--text-light); padding: 0 20px; border-bottom: 5px solid var(--primary-yellow);}
+.hero-content h2 { font-size: 3rem; color: var(--primary-yellow); margin-bottom: 10px; }
+
+/* Layouts & Typography */
+.container { padding: 40px 5%; max-width: 1400px; margin: auto; }
+.section-title { text-align: center; font-size: 2.2rem; margin-bottom: 30px; text-transform: uppercase; border-bottom: 3px solid var(--primary-yellow); display: inline-block; padding-bottom: 10px; }
+
+/* Category Row Styles */
+.category-row { margin-bottom: 60px; }
+.category-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 25px; }
+.category-header h3 { font-size: 2rem; color: var(--dark-bg); text-transform: uppercase; margin: 0; border-bottom: 3px solid var(--primary-yellow); padding-bottom: 5px; margin-bottom: -12px;}
+.view-all { color: var(--accent-red); text-decoration: none; font-weight: bold; font-size: 1rem; transition: var(--transition); }
+.view-all:hover { color: var(--dark-bg); text-decoration: underline; }
+
+/* Product Grid */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.product-card { background: var(--text-light); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: var(--transition); display: flex; flex-direction: column;}
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+.product-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 3px solid var(--primary-yellow); }
+.product-info { padding: 15px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
+.price { color: var(--accent-red); font-size: 1.3rem; font-weight: 800; margin: 10px 0; }
+
+/* Buttons & Forms */
+.btn { background-color: var(--primary-yellow); color: var(--dark-bg); border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%; transition: var(--transition); text-transform: uppercase; margin-top: auto;}
+.btn:hover { background-color: var(--dark-bg); color: var(--primary-yellow); }
+
+/* Toast Notification */
+#toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 4px; padding: 16px; position: fixed; z-index: 1000; left: 50%; bottom: 30px; transform: translateX(-50%); }
+#toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+@keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+@keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+footer { background-color: var(--dark-bg); color: var(--text-light); text-align: center; padding: 20px; margin-top: 40px; }

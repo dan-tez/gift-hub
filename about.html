@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luxe Gifts | About Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><h1>Luxe<span>Gifts</span></h1></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="custom-basket.html">Custom Basket</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div style="text-align: center;">
+            <h2 class="section-title">About Luxe Gifts</h2>
+            <p style="max-width: 800px; margin: 0 auto 40px;">We are a premium lifestyle brand dedicated to curating the finest gifts for every special occasion.</p>
+        </div>
+
+        <div style="text-align: center;"><h3 class="section-title" style="font-size: 2rem;">Our Directors</h3></div>
+        
+        <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <script>
+                for(let i=1; i<=7; i++) {
+                    document.write(`
+                    <a href="director${i}.html" style="text-decoration: none;">
+                        <div class="product-card" style="padding: 20px; text-align: center;">
+                            <img src="https://ui-avatars.com/api/?name=Director+${i}&background=fed700&color=1e1e27" style="border-radius: 50%; width: 100px; margin-bottom: 15px;">
+                            <h4 style="color: var(--dark-bg);">Director ${i}</h4>
+                            <p style="color: var(--accent-red); font-size: 0.9rem;">View Profile &rarr;</p>
+                        </div>
+                    </a>`);
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
