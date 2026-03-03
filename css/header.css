@@ -1,0 +1,38 @@
+/* header.css */
+:root {
+    /* Copy your variables here if header.css is used independently */
+    --dark-bg: #1a1a1a;
+    --text-light: #ffffff;
+    --primary-yellow: #ffcc00;
+    --transition: 0.3s ease;
+}
+
+header { 
+    background-color: var(--dark-bg); 
+    color: var(--text-light); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 5%; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+}
+
+.logo h1 { font-size: 2rem; font-weight: 800; text-transform: uppercase; margin: 0;}
+.logo span { color: var(--primary-yellow); }
+
+nav ul { list-style: none; display: flex; gap: 25px; }
+nav ul li a { text-decoration: none; color: var(--text-light); font-weight: 600; transition: var(--transition); }
+
+/* The CSS-only highlighting logic we discussed */
+#home-page .nav-home,
+#basket-page .nav-basket,
+#about-page .nav-about,
+#gallery-page .nav-gallery,
+#contact-page .nav-contact {
+    color: var(--primary-yellow);
+}
+
+nav ul li a:hover { color: var(--primary-yellow); }

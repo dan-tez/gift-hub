@@ -100,3 +100,17 @@ function showToast(message) {
     toast.className = "show";
     setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
 }
+
+function loadHeader() {
+    fetch('../Header/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('main-header').innerHTML = data;
+            highlightActiveLink();
+        })
+        .catch(error => console.error('Error loading header:', error));
+}
+
+
+// Initialize
+loadHeader();
