@@ -1,3 +1,4 @@
+@import url("header.css");
 :root {
     --primary-yellow: #fed700;
     --dark-bg: #1e1e27;
@@ -10,16 +11,6 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
 body { background-color: var(--gray-bg); color: var(--text-dark); line-height: 1.6; }
-
-/* Navigation */
-header { background-color: var(--dark-bg); color: var(--text-light); display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-.logo h1 { font-size: 2rem; font-weight: 800; text-transform: uppercase; margin: 0;}
-.logo span { color: var(--primary-yellow); }
-nav ul { list-style: none; display: flex; gap: 25px; }
-nav ul li a { text-decoration: none; color: var(--text-light); font-weight: 600; transition: var(--transition); }
-nav ul li a:hover, nav ul li a.active { color: var(--primary-yellow); }
-.cart { background: var(--primary-yellow); color: var(--dark-bg); padding: 10px 20px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: var(--transition); }
-.cart:hover { background: #fff; }
 
 /* Hero Section */
 .hero { background: #1e1e27; height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--text-light); padding: 0 20px; border-bottom: 5px solid var(--primary-yellow);}
