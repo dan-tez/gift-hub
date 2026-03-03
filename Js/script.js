@@ -102,7 +102,7 @@ function showToast(message) {
 }
 
 function loadHeader() {
-    fetch('../Header/header.html')
+    fetch('../Pages/Header/header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('main-header').innerHTML = data;
