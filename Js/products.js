@@ -64,3 +64,18 @@ const products = [
     { id: 45, name: "Knit Infinity Scarf", price: 1000, category: "Scarves", image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=400" },
 
 ];
+
+// 2. PACKAGING OPTIONS
+const packagingOptions = [
+    { id: 'box-1', name: "Signature Matte Black", price: 50, image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=400" },
+    { id: 'box-2', name: "Luxe White & Gold", price: 75, image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=400" },
+    { id: 'box-3', name: "Eco-Kraft Ribbon", price: 30, image: "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?q=80&w=400" }
+];
+
+// 3. CARD OPTIONS
+const cardOptions = [
+    { id: 'card-1', name: "Happy Birthday", price: 15, image: "https://images.unsplash.com/photo-1583875762487-5f8f7c718d14?q=80&w=400" },
+    { id: 'card-2', name: "Congratulations", price: 15, image: "https://images.unsplash.com/photo-1606768666853-403c90a981ad?q=80&w=400" },
+    { id: 'card-3', name: "A Note to Say Thanks", price: 15, image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=400" },
+    { id: 'card-4', name: "Blank Elegant Card", price: 10, image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=400" }
+];

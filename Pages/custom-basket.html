@@ -2,37 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Luxe Gifts | Custom Basket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curate Your Gift | Luxe Gifts</title>
     <link rel="stylesheet" href="./Css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="builder-body">
+    <div class="bg-grid"></div>
+
     <header id="main-header"></header>
 
-    <div class="container">
-        <div style="text-align: center;"><h2 class="section-title">Design Your Basket</h2></div>
+    <div class="main-header">
         
-        <form class="form-card" id="basket-form">
-            <div class="form-group">
-                <label>Occasion</label>
-                <select class="form-control">
-                    <option>Birthday</option>
-                    <option>Anniversary</option>
-                    <option>Valentine's Day</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Select Items:</label>
-                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
-                    <label><input type="checkbox" class="basket-item" value="1500" onchange="calculateBasket()"> Luxury Watch (+Ksh 1,500)</label>
-                    <label><input type="checkbox" class="basket-item" value="1800" onchange="calculateBasket()"> Premium Perfume (+Ksh 1,800)</label>
-                    <label><input type="checkbox" class="basket-item" value="800" onchange="calculateBasket()"> Leather Wallet (+Ksh 800)</label>
+        <div class="header-steps">
+            <span class="step active">1. Curate</span>
+            <span class="step-divider"></span>
+            <span class="step">2. Packaging</span>
+            <span class="step-divider"></span>
+            <span class="step">3. Card & Note</span>
+        </div>
+        <a href="../index.html" class="close-btn"><i class="fa-solid fa-xmark"></i></a>
+    </div>
+
+    <main class="builder-layout">
+        <div class="steps-container">
+            
+            <section id="step-1" class="step-section active">
+                <div class="catalog-header">
+                    <h1>Curate your items</h1>
+                    <p>Select the luxury items to fill your custom box.</p>
+                </div>
+                <div class="filter-track" id="filter-container"></div>
+                <div class="product-grid" id="product-grid"></div>
+            </section>
+
+            <section id="step-2" class="step-section">
+                <div class="catalog-header">
+                    <h1>Choose your packaging</h1>
+                    <p>Select the perfect premium box to present your gifts.</p>
+                </div>
+                <div class="packaging-grid" id="packaging-grid"></div>
+            </section>
+
+            <section id="step-3" class="step-section">
+                <div class="catalog-header">
+                    <h1>Add a personal touch</h1>
+                    <p>Choose a complimentary card and write your heartfelt message.</p>
+                </div>
+                <div class="packaging-grid" id="card-grid"></div>
+                
+                <div class="message-area">
+                    <label for="gift-recipient">To: (Recipient Name)</label>
+                    <input type="text" id="gift-recipient" placeholder="Enter recipient's name" class="message-input">
+                    
+                    <label for="gift-message" style="margin-top: 16px;">Your Gift Message</label>
+                    <textarea id="gift-message" rows="4" placeholder="Write your heartfelt message here..." class="message-input"></textarea>
+                </div>
+            </section>
+        </div>
+
+        <aside class="basket-sidebar">
+            <div class="basket-card glass-panel">
+                <div class="basket-header">
+                    <h2>Your Box</h2>
+                    <span class="item-count" id="basket-count">0 items</span>
+                </div>
+                
+                <div class="basket-items-container" id="basket-items">
+                    <div class="empty-basket">
+                        <div class="empty-icon"><i class="fa-solid fa-box-open"></i></div>
+                        <p>Your box is empty.<br>Start adding products.</p>
+                    </div>
+                </div>
+
+                <div class="basket-footer">
+                    <div class="total-row">
+                        <span>Total Estimate</span>
+                        <strong id="basket-total"> 0</strong>
+                    </div>
+                    <button class="checkout-btn" disabled id="next-step-btn">
+                        Next: Choose Packaging <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button class="back-btn" id="back-step-btn" style="display: none;">
+                        <i class="fa-solid fa-arrow-left"></i> Back to previous step
+                    </button>
                 </div>
             </div>
-            <h3 style="text-align: right; margin-bottom: 20px;">Estimated Total: <span style="color: var(--accent-red);">Ksh <span id="basket-total">0</span></span></h3>
-            <button type="button" class="btn" onclick="addBasketToCart()">Add Basket to Cart</button>
-        </form>
+        </aside>
+    </main>
+
+    <div class="checkout-modal-overlay" id="checkout-modal">
+        <div class="checkout-modal-card">
+            <div class="modal-header">
+                <h2>Review Your Box</h2>
+                <button class="close-modal-btn" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="review-items" id="modal-items-list">
+                    </div>
+                
+                <div class="order-summary">
+                    <div class="summary-line">
+                        <span>Subtotal</span>
+                        <span id="modal-subtotal">AED 0</span>
+                    </div>
+                    <div class="summary-line success-text">
+                        <span>Premium Ribbon Setup</span>
+                        <span>Complimentary</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-line total">
+                        <span>Total</span>
+                        <span id="modal-total">AED 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <p class="secure-text"><i class="fa-solid fa-shield-halved"></i> Secure encrypted checkout</p>
+                <button class="pay-btn" id="pay-btn">Proceed to Payment <i class="fa-solid fa-lock"></i></button>
+            </div>
+        </div>
     </div>
+
     <div id="toast"></div>
+
+    <script src="../Js/products.js"></script>
     <script src="../Js/script.js"></script>
+    <script src="../Js/builder.js"></script>
 </body>
 </html>
