@@ -2,23 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Luxe Gifts | Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Our Team</title>
     <link rel="stylesheet" href="./Css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="bg-grid"></div>
+
     <header id="main-header"></header>
 
-   <div class="container">
-    <div style="text-align: center;"><h2 class="section-title">Get In Touch</h2></div>
-    <form class="form-card" onsubmit="handleContactSubmit(event)">
-        <div class="form-group"><label>Name</label><input type="text" class="form-control" required></div>
-        <div class="form-group"><label>Email</label><input type="email" class="form-control" required></div>
-        <div class="form-group"><label>Message</label><textarea class="form-control" required rows="5"></textarea></div>
-        <button type="submit" class="btn">Send Message</button>
-    </form>
-</div>
-<div id="toast"></div>
+    <main class="page-container">
+        <section class="hero-section">
+            <h1>Contact our team</h1>
+            <p>Got any questions about a product on our platform? We're here to help.<br>
+                Chat to our friendly team 24/7 and get a response in less than 24hrs.</p>
+        </section>
 
-<script src="../Js/script.js"></script>
+        <div class="contact-wrapper">
+            
+            <div class="form-area">
+                <form class="contact-form" >
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>First name</label>
+                            <input type="text" placeholder="First name">
+                        </div>
+                        <div class="input-group">
+                            <label>Last name</label>
+                            <input type="text" placeholder="Last name">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="example@gmail.com">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Phone number</label>
+                        <div class="phone-input-wrapper">
+                            <input type="tel" placeholder="+2547 000-0000">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea placeholder="Leave us a message..." rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send message</button>
+                </form>
+            </div>
+
+            <div class="info-area">
+                <div class="info-block">
+                    <h3>Chat with us</h3>
+                    <p>Speak to our team via chat.</p>
+                    <ul class="contact-links">
+                        <li><a href="#"><i class="fa-regular fa-comments"></i> Send us an Sms</a></li>
+                        <li><a href="#"><i class="fa-regular fa-paper-plane"></i> Send us an Email</a></li>
+                        <li><a href="#"><i class="fa-brands fa-whatsapp"></i> Message us on Whatsapp</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-block">
+                    <h3>Call us</h3>
+                    <p>Call our team Mon-Fri from 8am to 5pm.</p>
+                    <a href="tel:+15550000000" class="direct-link">
+                        <i class="fa-solid fa-phone"></i> +2547 000-0000
+                    </a>
+                </div>
+
+                <div class="info-block">
+                    <h3>Visit us</h3>
+                    <p>Talk to us in person at our HQ.</p>
+                    <a href="#" class="direct-link">
+                        <i class="fa-solid fa-location-dot"></i>  4th Floor, Delta Corner Annex, Ring Rd Westlands Ln, Nairobi
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="toast"></div>
+    <script src="../Js/script.js"></script>
+
 </body>
 </html>
