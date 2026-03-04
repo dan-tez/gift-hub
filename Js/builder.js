@@ -23,8 +23,8 @@ const giftMessageEl = document.getElementById('gift-message');
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof products !== 'undefined' && typeof packagingOptions !== 'undefined' && typeof cardOptions !== 'undefined') {
-        extractAndRenderFilters();
-        renderProducts(products);
+        extractAndRenderFilters(); // This now handles rendering the first category automatically
+        // renderProducts(products); <-- DELETE THIS LINE
         renderOptionsGrid(packagingOptions, 'packaging-grid', 'packaging');
         renderOptionsGrid(cardOptions, 'card-grid', 'card');
     } else {
@@ -42,7 +42,16 @@ nextBtn.addEventListener('click', () => {
         if(!selectedPackaging) { showToast("Please select a box first!"); return; }
         goToStep(3);
     } else if (currentStep === 3) {
-        if(!selectedCard) { showToast("Please select a card first!"); return; }
+        
+        const messageText = giftMessageEl.value.trim();
+        
+        // If they selected a card but didn't write a message, stop them.
+        if (selectedCard && messageText === '') {
+            showToast("Please enter a message for your selected card!");
+            giftRecipientEl.focus(); // Instantly puts their cursor in the text box
+            return; 
+        }
+        
         openReviewModal();
     }
 });
@@ -79,23 +88,34 @@ function goToStep(stepNumber) {
 // 4. RENDERING GRIDS
 // ==========================================
 function extractAndRenderFilters() {
-    const categories = ['All', ...new Set(products.map(p => p.category))];
+    // 1. Remove 'All' - just grab the unique categories directly
+    const categories = [...new Set(products.map(p => p.category))];
     filterContainer.innerHTML = '';
     
-    categories.forEach(category => {
+    categories.forEach((category, index) => {
         const btn = document.createElement('button');
-        btn.className = `filter-btn ${category === 'All' ? 'active' : ''}`;
+        
+        // 2. Make the very first category in the array active by default
+        btn.className = `filter-btn ${index === 0 ? 'active' : ''}`;
         btn.innerText = category;
         
         btn.onclick = () => {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentFilter = category;
-            const filtered = category === 'All' ? products : products.filter(p => p.category === category);
+            
+            // 3. Filter logic simplified since 'All' no longer exists
+            const filtered = products.filter(p => p.category === category);
             renderProducts(filtered);
         };
         filterContainer.appendChild(btn);
     });
+
+    // 4. Automatically render the first category's products when this runs
+    if (categories.length > 0) {
+        currentFilter = categories[0];
+        renderProducts(products.filter(p => p.category === currentFilter));
+    }
 }
 
 function renderProducts(items) {
