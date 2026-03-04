@@ -1,5 +1,6 @@
 @import url("../Header/header.css");
-@import url("./contact.css");
+@import url("contact.css");
+@import url("custom-basket.css");
 :root {
     --primary-yellow: #fed700;
     --dark-bg: #1e1e27;
