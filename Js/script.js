@@ -93,6 +93,25 @@ function addToCart(productName) {
     showToast(`${productName} added to cart! 🛍️`);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Target the form from the HTML
+    const contactForm = document.querySelector('.contact-form');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            // 1. Prevent the default page reload on submit
+            event.preventDefault();
+
+            // 2. Trigger your existing toast function
+            showToast('Your email has been sent successfully!');
+
+            // 3. Instantly clear all text inputs, textareas, and checkboxes
+            contactForm.reset();
+        });
+    }
+});
+
+// Your existing function remains exactly as is:
 function showToast(message) {
     const toast = document.getElementById("toast");
     if(!toast) return;
