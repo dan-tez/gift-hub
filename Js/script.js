@@ -1,135 +1,136 @@
-// script.js
-// --- State Management ---
+// ==========================================
+// 1. STATE & INITIALIZATION
+// ==========================================
 let cartCount = parseInt(localStorage.getItem('luxeCartCount')) || 0;
 
-// Array matches the spelling in products.js perfectly
+// Defines the order categories appear on the homepage
 const categoriesList = [
     'Watches', 'Handbags', 'Perfumes', 'Wallets', 'Sunglasses', 
-    'Belts', 'Jewelry', 'Hats', 'Scarves', 'Gift Sets'
+    'Jewelry', 'Scarves'
 ];
 
-// --- Initialization ---
 document.addEventListener("DOMContentLoaded", () => {
-    updateCartDisplay();
-    populateStorefront(); 
-});
-
-// --- Dynamic Assembly Line Logic ---
-function populateStorefront() {
-    categoriesList.forEach(category => {
-        // Formulate the base key (e.g., "Gift Sets" -> "gift-sets")
-        const baseKey = category.toLowerCase().replace(' ', '-');
-        
-        // Target the simplified grid ID (e.g., id="watches") and the template
-        const grid = document.getElementById(baseKey);
-        const templateCard = document.getElementById('template-' + baseKey);
-        
-        if (grid && templateCard) {
-            
-            // 1. Create the clean blueprint
-            const blueprint = templateCard.cloneNode(true);
-            blueprint.removeAttribute('id');
-            
-            // 2. Clear the grid to remove the blank template
-            grid.innerHTML = '';
-            
-            // 3. Filter products for this category
-            const categoryProducts = products.filter(p => p.category === category);
-            
-            // 4. Map the products to the DOM
-            categoryProducts.forEach(product => {
-                const clone = blueprint.cloneNode(true);
-                
-                // Find elements using the baseKey identifiers
-                const imgEl = clone.querySelector('#img-' + baseKey);
-                const infoDiv = clone.querySelector('#' + baseKey + '-info');
-                const nameEl = clone.querySelector('#name-' + baseKey);
-                const priceEl = clone.querySelector('#price-' + baseKey);
-                const btnEl = clone.querySelector('#btn-' + baseKey);
-                
-                // Inject data and mutate IDs using the database product.id
-                if (imgEl) {
-                    imgEl.src = product.image;
-                    imgEl.alt = product.name;
-                    imgEl.id = 'img-' + product.id; 
-                }
-                
-                if (infoDiv) {
-                    infoDiv.id = 'info-' + product.id; 
-                }
-                
-                if (nameEl) {
-                    nameEl.textContent = product.name;
-                    nameEl.id = 'name-' + product.id; 
-                }
-                
-                if (priceEl) {
-                    priceEl.textContent = `Ksh ${product.price.toLocaleString()}`;
-                    priceEl.id = 'price-' + product.id; 
-                }
-                
-                if (btnEl) {
-                    btnEl.onclick = () => addToCart(product.name);
-                    btnEl.id = 'btn-' + product.id; 
-                }
-                
-                // 5. Append finished card to the grid
-                grid.appendChild(clone);
-            });
-        }
-    });
-}
-
-// --- Interactive Features ---
-function updateCartDisplay() {
-    const cartElement = document.getElementById('cart-count');
-    if(cartElement) cartElement.innerText = cartCount;
-}
-
-function addToCart(productName) {
-    cartCount++;
-    localStorage.setItem('luxeCartCount', cartCount);
-    updateCartDisplay();
-    showToast(`${productName} added to cart! 🛍️`);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Target the form from the HTML
-    const contactForm = document.querySelector('.contact-form');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            // 1. Prevent the default page reload on submit
-            event.preventDefault();
-
-            // 2. Trigger your existing toast function
-            showToast('Your email has been sent successfully!');
-
-            // 3. Instantly clear all text inputs, textareas, and checkboxes
-            contactForm.reset();
-        });
+    loadHeader();
+    
+    if (typeof products !== 'undefined') {
+        populateStorefront(); 
+    } else {
+        console.error("Products array not found. Ensure products.js is loaded.");
     }
 });
 
-// Your existing function remains exactly as is:
-function showToast(message) {
+// ==========================================
+// 2. DYNAMIC STOREFRONT RENDERER (Editorial Style)
+// ==========================================
+function populateStorefront() {
+    const storefrontContainer = document.getElementById('storefront');
+    if (!storefrontContainer) return;
+    
+    storefrontContainer.innerHTML = ''; 
+
+    categoriesList.forEach(category => {
+        const categoryProducts = products.filter(p => p.category === category);
+        if (categoryProducts.length === 0) return;
+
+        const baseKey = category.toLowerCase().replace(' ', '-');
+        
+        const section = document.createElement('section');
+        section.className = 'category-row';
+        section.id = `section-${baseKey}`;
+        
+        let productsHTML = '';
+        categoryProducts.forEach(product => {
+            productsHTML += `
+                <div class="ed-product-card" id="card-${product.id}">
+                    <div class="ed-img-wrapper">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                        <button class="ed-add-btn" onclick="addToCart('${product.name}')">Add to Cart</button>
+                    </div>
+                    <div class="ed-product-info">
+                        <h3 class="ed-p-name">${product.name}</h3>
+                        <span class="ed-p-price">AED ${product.price.toLocaleString()}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        section.innerHTML = `
+            <div class="category-header">
+                <h3>${category}</h3>
+                <a href="builder.html" class="view-all">Shop ${category}</a>
+            </div>
+            <div class="scroll-track" id="${baseKey}-track">
+                ${productsHTML}
+            </div>
+        `;
+
+        storefrontContainer.appendChild(section);
+    });
+}
+
+// ==========================================
+// 3. CART & UI INTERACTIONS
+// ==========================================
+function updateCartDisplay() {
+    const cartElement = document.getElementById('cart-count');
+    if(cartElement) {
+        cartElement.innerText = cartCount;
+    }
+}
+
+window.addToCart = function(productName) {
+    cartCount++;
+    localStorage.setItem('luxeCartCount', cartCount);
+    updateCartDisplay();
+    showToast(`${productName} added to bag.`);
+};
+
+window.showToast = function(message) {
     const toast = document.getElementById("toast");
     if(!toast) return;
+    
+    // Create the toast UI dynamically if it doesn't have styling
+    toast.style.position = 'fixed';
+    toast.style.bottom = '30px';
+    toast.style.right = '30px';
+    toast.style.background = '#1A1A1A';
+    toast.style.color = '#fff';
+    toast.style.padding = '16px 24px';
+    toast.style.fontSize = '0.9rem';
+    toast.style.zIndex = '9999';
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(20px)';
+    toast.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    
     toast.innerText = message;
-    toast.className = "show";
-    setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
-}
+    
+    // Trigger animation
+    setTimeout(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+    }, 10);
+    
+    setTimeout(() => { 
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+    }, 3000);
+};
 
+// ==========================================
+// 4. HEADER LOADER
+// ==========================================
 function loadHeader() {
     fetch('../Pages/Header/header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('main-header').innerHTML = data;
-            highlightActiveLink();
+        .then(response => {
+            if(!response.ok) throw new Error("Header not found");
+            return response.text();
         })
-        .catch(error => console.error('Error loading header:', error));
+        .then(data => {
+            const headerContainer = document.getElementById('main-header');
+            if(headerContainer) {
+                headerContainer.innerHTML = data;
+                updateCartDisplay(); 
+            }
+        })
+        .catch(error => console.warn('Header fetch skipped or failed:', error));
 }
-
-
-// Initialize
-loadHeader();
