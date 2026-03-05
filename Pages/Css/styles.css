@@ -2,11 +2,15 @@
 @import url("contact.css");
 @import url("custom-basket.css");
 
-
-/* =========================================
-   1. CORE THEME & VARIABLES
-   ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+@import url("gallery.css");
+@import url("about.css");
+@import url("director1.css");
+@import url("director2.css");
+@import url("director3.css");
+@import url("director4.css");
+@import url("director5.css");
+@import url("director6.css");
+@import url("director7.css");
 
 :root {
     /* Editorial Luxe Palette */
