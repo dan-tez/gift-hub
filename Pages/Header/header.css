@@ -1,6 +1,4 @@
-/* header.css */
 :root {
-    /* Copy your variables here if header.css is used independently */
     --dark-bg: #1a1a1a;
     --text-light: #ffffff;
     --primary-yellow: #ffcc00;
@@ -20,13 +18,14 @@ header {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
 }
 
+.logo a { text-decoration: none; color: inherit; }
 .logo h1 { font-size: 2rem; font-weight: 800; text-transform: uppercase; margin: 0;}
 .logo span { color: var(--primary-yellow); }
 
-nav ul { list-style: none; display: flex; gap: 25px; }
+nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0;}
 nav ul li a { text-decoration: none; color: var(--text-light); font-weight: 600; transition: var(--transition); }
 
-/* The CSS-only highlighting logic we discussed */
+/* The CSS-only highlighting logic */
 #home-page .nav-home,
 #basket-page .nav-basket,
 #about-page .nav-about,
@@ -36,3 +35,45 @@ nav ul li a { text-decoration: none; color: var(--text-light); font-weight: 600;
 }
 
 nav ul li a:hover { color: var(--primary-yellow); }
+
+/* =========================================
+   CART ICON & BADGE
+   ========================================= */
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon-wrapper {
+    position: relative;
+    color: var(--text-light); /* White cart to match text */
+    font-size: 1.4rem; 
+    text-decoration: none;
+    transition: transform var(--transition), color var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon-wrapper:hover {
+    transform: scale(1.1); /* Slight pop on hover */
+    color: var(--primary-yellow); /* Cart turns yellow on hover */
+}
+
+/* The Notification Bubble */
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: var(--primary-yellow); /* Yellow badge pops on dark bg */
+    color: var(--dark-bg); /* Dark text inside yellow badge */
+    font-size: 0.75rem;
+    font-weight: 800;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--dark-bg); /* Cutout effect matching the dark header */
+    transition: transform var(--transition); 
+}

@@ -71,19 +71,7 @@ function populateStorefront() {
 // ==========================================
 // 3. CART & UI INTERACTIONS
 // ==========================================
-function updateCartDisplay() {
-    const cartElement = document.getElementById('cart-count');
-    if(cartElement) {
-        cartElement.innerText = cartCount;
-    }
-}
 
-window.addToCart = function(productName) {
-    cartCount++;
-    localStorage.setItem('luxeCartCount', cartCount);
-    updateCartDisplay();
-    showToast(`${productName} added to bag.`);
-};
 
 window.showToast = function(message) {
     const toast = document.getElementById("toast");
@@ -120,7 +108,7 @@ window.showToast = function(message) {
 // 4. HEADER LOADER
 // ==========================================
 function loadHeader() {
-    fetch('../Pages/Header/header.html')
+    fetch('/Pages/Header/header.html')
         .then(response => {
             if(!response.ok) throw new Error("Header not found");
             return response.text();
@@ -134,3 +122,42 @@ function loadHeader() {
         })
         .catch(error => console.warn('Header fetch skipped or failed:', error));
 }
+
+// --- UPGRADED CART STATE ---
+// We now store an array of objects instead of just a number
+let cartItems = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
+
+function updateCartDisplay() {
+    const cartElement = document.getElementById('cart-count');
+    if (cartElement) {
+        // Calculate total items (accounting for quantities)
+        const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
+        cartElement.innerText = totalItems;
+        
+        // Quick pop animation
+        cartElement.style.transform = 'scale(1.2)';
+        setTimeout(() => cartElement.style.transform = 'scale(1)', 200);
+    }
+}
+
+// Ensure the button passes the product name, and we find the full details from the products array
+window.addToCart = function(productName) {
+    // Find the product data from your products.js file
+    const product = products.find(p => p.name === productName);
+    if (!product) return;
+
+    // Check if it's already in the cart
+    const existingItem = cartItems.find(item => item.id === product.id);
+    
+    if (existingItem) {
+        existingItem.qty += 1; // Increase quantity
+    } else {
+        cartItems.push({ ...product, qty: 1 }); // Add new item with qty: 1
+    }
+
+    // Save the upgraded array to localStorage
+    localStorage.setItem('luxeCartItems', JSON.stringify(cartItems));
+    
+    updateCartDisplay();
+    showToast(`${product.name} added to cart!`);
+};

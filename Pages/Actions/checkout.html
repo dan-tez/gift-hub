@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Luxe Gifts</title>
+    <link rel="stylesheet" href="../Css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="editorial-body">
+    
+    <header id="main-header" class="site-header"></header>
+
+    <main class="checkout-container">
+        <h1 class="cart-page-title">CHECKOUT</h1>
+
+        <div class="checkout-layout">
+            <div class="checkout-forms-section">
+                
+                <div class="checkout-card">
+                    <h2>Shipping Information</h2>
+                    
+                    <div class="toggle-group">
+                        <button class="toggle-btn active" id="btn-delivery">
+                            <i class="fa-solid fa-truck"></i> Delivery
+                        </button>
+                        <button class="toggle-btn" id="btn-pickup">
+                            <i class="fa-solid fa-box"></i> Pick up
+                        </button>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="input-group full-width">
+                            <label>Full name <span class="required">*</span></label>
+                            <input type="text" id="chk-name" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="input-group full-width">
+                            <label>Email address <span class="required">*</span></label>
+                            <input type="email" id="chk-email" placeholder="Enter email address">
+                        </div>
+
+                        <div class="input-group full-width">
+                            <label>Phone number <span class="required">*</span></label>
+                            <div class="phone-input-wrapper">
+                                <select class="country-code"><option>+254</option><option>+1</option></select>
+                                <input type="tel" id="chk-phone" placeholder="712 345 678">
+                            </div>
+                        </div>
+
+                        <div id="address-wrapper" style="display: contents;">
+                            <div class="input-group full-width">
+                                <label>Country <span class="required">*</span></label>
+                                <select class="custom-select" id="chk-country">
+                                    <option value="">Choose country</option>
+                                    <option value="KE">Kenya</option>
+                                    <option value="UAE">United Arab Emirates</option>
+                                    <option value="US">United States</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label>City <span class="required">*</span></label>
+                                <input type="text" id="chk-city" placeholder="Enter city">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>State/Region</label>
+                                <input type="text" id="chk-state" placeholder="Enter state">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>ZIP Code</label>
+                                <input type="text" id="chk-zip" placeholder="Enter ZIP code">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-card">
+                    <h2>Payment Method</h2>
+                    
+                    <div class="toggle-group payment-toggles">
+                        <button class="toggle-btn active" id="btn-card">
+                            <i class="fa-regular fa-credit-card"></i> Card
+                        </button>
+                        <button class="toggle-btn" id="btn-mpesa">
+                            <i class="fa-solid fa-mobile-screen"></i> M-Pesa
+                        </button>
+                    </div>
+
+                    <div class="form-grid" id="form-card">
+                        <div class="input-group full-width">
+                            <label>Name on Card <span class="required">*</span></label>
+                            <input type="text" id="chk-card-name" placeholder="First & Last Name">
+                        </div>
+                        <div class="input-group full-width">
+                            <label>Card Number <span class="required">*</span></label>
+                            <input type="text" id="chk-card-num" placeholder="0000 0000 0000 0000">
+                        </div>
+                        <div class="input-group">
+                            <label>Expiry <span class="required">*</span></label>
+                            <div style="display: flex; gap: 10px;">
+                                <select class="custom-select" id="chk-card-mm"><option value="">MM</option><option>01</option><option>02</option></select>
+                                <select class="custom-select" id="chk-card-yy"><option value="">YYYY</option><option>2026</option><option>2027</option></select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>CVV <span class="required">*</span></label>
+                            <input type="text" id="chk-card-cvv" placeholder="123">
+                        </div>
+                    </div>
+
+                    <div class="form-grid" id="form-mpesa" style="display: none;">
+                        <div class="input-group full-width">
+                            <label>M-Pesa Mobile Number <span class="required">*</span></label>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Enter your Safaricom number. You will receive an STK prompt on your phone to complete payment.</p>
+                            <div class="phone-input-wrapper">
+                                <span class="mpesa-prefix">07</span>
+                                <input type="tel" id="chk-mpesa-phone" placeholder="12 345 678" style="border:none; padding-left: 8px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terms-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I have read and agree to the Terms and Conditions.</label>
+                </div>
+                
+            </div>
+
+            <div class="checkout-summary-section">
+                <div class="cart-summary-card" style="top: 100px; position: sticky;">
+                    <h2>Order Summary</h2>
+                    <div id="checkout-items-preview" style="margin-bottom: 20px;">
+                        </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <div class="summary-line">
+                        <span class="s-label">Subtotal</span>
+                        <strong id="chk-subtotal">AED 0</strong>
+                    </div>
+                    <div class="summary-line">
+                        <span class="s-label">Delivery Fee</span>
+                        <strong id="chk-delivery">AED 50</strong>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-line total">
+                        <span class="s-label">Total</span>
+                        <strong id="chk-total">AED 0</strong>
+                    </div>
+
+                    <button class="btn-solid pill-btn checkout-btn" id="pay-now-btn" style="margin-top: 20px;">
+                        Pay Now <i class="fa-solid fa-lock" style="margin-left: 8px;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast"></div>
+
+    <script src="/Js/script.js"></script>
+    <script src="/Js/checkout.js"></script>
+</body>
+</html>

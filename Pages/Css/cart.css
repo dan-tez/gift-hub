@@ -1,0 +1,204 @@
+/* =========================================
+   8. SHOPPING CART PAGE (REDESIGN)
+   ========================================= */
+.cart-container {
+    max-width: 1200px;
+    margin: 40px auto 100px;
+    padding: 0 5%;
+}
+
+.cart-page-title {
+    font-size: 2.8rem;
+    font-weight: 300; /* Thin font matching the image */
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 30px;
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr; /* Left side is wider */
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* White Card Containers */
+.cart-items-card, .cart-summary-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+/* --- LEFT SIDE: CART ITEMS --- */
+.cart-item-row {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-item-row:first-child { padding-top: 0; }
+.cart-item-row:last-child { padding-bottom: 0; border-bottom: none; }
+
+.cart-item-img-box {
+    width: 110px;
+    height: 110px;
+    background: #f4f4f4; /* Light grey box for image */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.cart-item-img-box img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cart-item-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Red Trash Button */
+.trash-btn {
+    background: transparent;
+    border: none;
+    color: #F04438; /* Red */
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.trash-btn:hover { transform: scale(1.1); }
+
+.cart-item-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: auto; /* Pushes price to bottom */
+}
+
+.item-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.cart-item-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Pill Quantity Selector */
+.qty-pill {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border: 1px solid #EAEAEA;
+    border-radius: 50px;
+    padding: 4px 12px;
+}
+
+.qty-pill button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    padding: 4px;
+}
+
+.qty-pill span {
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0 16px;
+}
+
+/* --- RIGHT SIDE: ORDER SUMMARY --- */
+.cart-summary-card h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+}
+
+.s-label { color: var(--text-muted); }
+.text-red { color: #F04438; }
+
+.summary-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 20px 0;
+}
+
+.summary-line.total {
+    font-size: 1.5rem;
+    font-weight: 700;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Promo Box styling to match image */
+.promo-box {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border: 1px solid #EAEAEA;
+    border-radius: 50px;
+    padding: 6px 6px 6px 20px;
+    margin-bottom: 24px;
+}
+
+.promo-icon { color: var(--text-muted); font-size: 0.9rem; margin-right: 12px; }
+
+.promo-box input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.apply-btn {
+    background: var(--text-dark);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.apply-btn:hover { opacity: 0.8; }
+
+/* Checkout Button */
+.pill-btn { border-radius: 50px; width: 100%; font-size: 1rem; padding: 18px; }
+
+@media (max-width: 900px) {
+    .cart-layout { grid-template-columns: 1fr; }
+    .cart-item-row { gap: 16px; }
+    .cart-item-img-box { width: 90px; height: 90px; }
+}
