@@ -68,16 +68,16 @@ function renderCheckoutSummary() {
                     <img src="${item.image}" alt="">
                     <span>${item.name} (x${item.qty})</span>
                 </div>
-                <strong>AED ${(item.price * item.qty).toLocaleString()}</strong>
+                <strong> ${(item.price * item.qty).toLocaleString()}</strong>
             </div>
         `;
     });
 
     const finalTotal = subtotalValue + deliveryFee;
 
-    subtotalEl.innerText = `AED ${subtotalValue.toLocaleString()}`;
-    deliveryEl.innerText = `AED ${deliveryFee}`;
-    totalEl.innerText = `AED ${finalTotal.toLocaleString()}`;
+    subtotalEl.innerText = `${subtotalValue.toLocaleString()}`;
+    deliveryEl.innerText = `${deliveryFee}`;
+    totalEl.innerText = `${finalTotal.toLocaleString()}`;
 }
 
 // Validation Function

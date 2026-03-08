@@ -1,5 +1,31 @@
+@import url("../Header/header.css");
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --dark-bg: #1a1a1a;
+    --text-light: #ffffff;
+    --primary-yellow: #ffcc00;
+    --cf-grey-bg: #F5F7FA;
+    --cf-border: #EAEAEA;
+    --text-muted: #666666;
+    --focus-ring: rgba(255, 204, 0, 0.4); /* Yellow focus ring for inputs */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cf-grey-bg);
+    color: var(--dark-bg);
+    font-family: 'Jost', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
 /* =========================================
-   9. CHECKOUT PAGE
+   2. CHECKOUT PAGE STYLES
    ========================================= */
 .checkout-container {
     max-width: 1200px;
@@ -16,16 +42,18 @@
 
 .checkout-card {
     background: #ffffff;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--cf-border);
     border-radius: 16px;
     padding: 30px;
     margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .checkout-card h2 {
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 24px;
+    color: var(--dark-bg);
 }
 
 /* Toggle Buttons (Delivery/Pickup & Card/M-Pesa) */
@@ -42,11 +70,11 @@
 
 .toggle-btn {
     background: #fff;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--cf-border);
     border-radius: 8px;
     padding: 16px;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-muted);
     cursor: pointer;
     display: flex;
@@ -56,23 +84,49 @@
     transition: all 0.2s ease;
 }
 
-/* The Active State (mimicking the sleek border from your screenshot) */
 .toggle-btn.active {
-    border-color: var(--text-dark);
-    background: #f9f9f9;
-    color: var(--text-dark);
-    box-shadow: 0 0 0 1px var(--text-dark); /* Creates a slightly thicker border effect */
+    border-color: var(--dark-bg);
+    background: var(--cf-grey-bg);
+    color: var(--dark-bg);
+    box-shadow: 0 0 0 1px var(--dark-bg); 
 }
 
-/* Form Grids */
+/* Form Grids & Inputs */
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
 }
 
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .input-group.full-width {
     grid-column: 1 / -1;
+}
+
+.input-group label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--dark-bg);
+}
+
+.input-group input {
+    padding: 14px 16px;
+    border: 1px solid var(--cf-border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+    border-color: var(--dark-bg);
+    box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
 .required {
@@ -83,15 +137,15 @@
 .phone-input-wrapper {
     display: flex;
     align-items: center;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--cf-border);
     border-radius: 4px;
     background: #fff;
     overflow: hidden;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .phone-input-wrapper:focus-within {
-    border-color: var(--text-dark);
+    border-color: var(--dark-bg);
     box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
@@ -100,36 +154,42 @@
     box-shadow: none;
     padding: 14px 16px;
     outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    width: 100%;
 }
 
 .phone-input-wrapper select {
-    background: #f9f9f9;
-    border-right: 1px solid var(--border-color);
+    background: var(--cf-grey-bg);
+    border-right: 1px solid var(--cf-border);
     color: var(--text-muted);
+    width: auto;
 }
 
 .custom-select {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--cf-border);
     border-radius: 4px;
     background: #fff;
     font-family: inherit;
     font-size: 1rem;
-    color: var(--text-dark);
+    color: var(--dark-bg);
     outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .custom-select:focus {
-    border-color: var(--text-dark);
+    border-color: var(--dark-bg);
+    box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
 .mpesa-prefix {
-    background: #f9f9f9;
+    background: var(--cf-grey-bg);
     padding: 14px 16px;
-    border-right: 1px solid var(--border-color);
-    font-weight: 500;
-    color: var(--text-dark);
+    border-right: 1px solid var(--cf-border);
+    font-weight: 600;
+    color: var(--dark-bg);
 }
 
 /* Terms Checkbox */
@@ -145,12 +205,14 @@
     width: 18px;
     height: 18px;
     cursor: pointer;
+    accent-color: var(--dark-bg);
 }
 
 .terms-group label {
     font-size: 0.95rem;
     color: var(--text-muted);
     cursor: pointer;
+    line-height: 1.5;
 }
 
 /* Mini Item Preview on Checkout */
@@ -160,14 +222,89 @@
     align-items: center;
     margin-bottom: 12px;
     font-size: 0.95rem;
+    color: var(--dark-bg);
 }
 
 .mini-chk-item img {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    object-fit: cover;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: contain;
     margin-right: 12px;
+    border: 1px solid var(--cf-border);
+    background: var(--cf-grey-bg);
+}
+
+/* =========================================
+   3. CHECKOUT ORDER SUMMARY CARD
+   ========================================= */
+
+/* The Main Summary Card */
+.cart-summary-card {
+    background: #ffffff;
+    border: 1px solid var(--cf-border);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.cart-summary-card h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--dark-bg);
+}
+
+/* Summary Line Items */
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    color: var(--dark-bg);
+}
+
+.s-label { 
+    color: var(--text-muted); 
+}
+
+/* The horizontal line separator */
+.summary-divider {
+    height: 1px;
+    background: var(--cf-border);
+    margin: 20px 0;
+}
+
+/* The Grand Total Line */
+.summary-line.total {
+    font-size: 1.5rem;
+    font-weight: 800;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* "Pay Now" Button */
+.btn-solid.pill-btn.checkout-btn { 
+    border-radius: 50px; 
+    width: 100%; 
+    font-size: 1.1rem; 
+    padding: 16px; 
+    background: var(--dark-bg);
+    color: var(--primary-yellow);
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.btn-solid.pill-btn.checkout-btn:hover {
+    background: var(--primary-yellow);
+    color: var(--dark-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.2);
 }
 
 @media (max-width: 900px) {

@@ -46,21 +46,21 @@ function populateStorefront() {
             const oldPrice = Math.floor(product.price * 1.2);
 
             productsHTML += `
-                <div class="cf-product-card" id="card-${product.id}">
-                    <div class="cf-img-box">
-                        <img src="${product.image}" alt="${product.name}" loading="lazy">
-                    </div>
-                    <div class="cf-info">
-                        <div class="cf-price">
-                            <span class="cf-old-price">AED ${oldPrice.toLocaleString()}</span>
-                            AED ${product.price.toLocaleString()}
+                    <div class="luxe-product-card" id="card-${product.id}">
+                        <div class="luxe-img-box">
+                            <img src="${product.image}" alt="${product.name}">
                         </div>
-                        <span class="cf-name">${product.name}</span>
+                        <div class="luxe-info">
+                            <div class="luxe-price">
+                                <span class="luxe-old-price">AED ${oldPrice}</span>
+                                AED ${product.price}
+                            </div>
+                            <span class="luxe-name">${product.name}</span>
+                        </div>
+                        <button class="luxe-add-btn" onclick="addToCart('${product.name}')">
+                            <i class="fa-solid fa-plus"></i> Add
+                        </button>
                     </div>
-                    <button class="cf-add-btn" onclick="addToCart('${product.name}')">
-                        <i class="fa-solid fa-plus"></i> Add
-                    </button>
-                </div>
             `;
         });
 
@@ -117,7 +117,7 @@ window.addToCart = function(productName) {
 function loadHeader() {
     // Allows the header to load properly if you are in the root folder or the Pages folder
     const inSubfolder = window.location.pathname.includes('/Pages/');
-    const headerPath = inSubfolder ? '../Pages/Header/header.html' : './Pages/Header/header.html';
+    const headerPath = inSubfolder ? '/Pages/Header/header.html' : './Pages/Header/header.html';
 
     fetch(headerPath)
         .then(response => {

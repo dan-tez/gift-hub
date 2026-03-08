@@ -1,5 +1,32 @@
+@import url("../Header/header.css");
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --dark-bg: #1a1a1a;
+    --text-light: #ffffff;
+    --primary-yellow: #ffcc00;
+    --cf-grey-bg: #F5F7FA;
+    --cf-border: #EAEAEA;
+    --text-muted: #666666;
+    --error-red: #F04438;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body#cart-page {
+    background-color: var(--cf-grey-bg);
+    color: var(--dark-bg);
+    font-family: 'Jost', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
 /* =========================================
-   8. SHOPPING CART PAGE (REDESIGN)
+   2. LAYOUT & CONTAINERS
    ========================================= */
 .cart-container {
     max-width: 1200px;
@@ -8,34 +35,38 @@
 }
 
 .cart-page-title {
-    font-size: 2.8rem;
-    font-weight: 300; /* Thin font matching the image */
+    font-size: 2.5rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     margin-bottom: 30px;
+    color: var(--dark-bg);
 }
 
 .cart-layout {
     display: grid;
-    grid-template-columns: 1.8fr 1fr; /* Left side is wider */
+    grid-template-columns: 1.8fr 1fr;
     gap: 30px;
     align-items: flex-start;
 }
 
-/* White Card Containers */
+/* White Card Sections */
 .cart-items-card, .cart-summary-card {
     background: #ffffff;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border: 1px solid var(--cf-border);
+    border-radius: 12px;
     padding: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
-/* --- LEFT SIDE: CART ITEMS --- */
+/* =========================================
+   3. CART ITEMS (Injected via JS)
+   ========================================= */
 .cart-item-row {
     display: flex;
     gap: 20px;
     padding: 24px 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--cf-border);
 }
 
 .cart-item-row:first-child { padding-top: 0; }
@@ -44,19 +75,20 @@
 .cart-item-img-box {
     width: 110px;
     height: 110px;
-    background: #f4f4f4; /* Light grey box for image */
-    border-radius: 12px;
+    background: var(--cf-grey-bg); 
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     flex-shrink: 0;
+    border: 1px solid var(--cf-border);
 }
 
 .cart-item-img-box img {
-    width: 90%;
-    height: 90%;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Perfect for square packaging images */
 }
 
 .cart-item-details {
@@ -72,26 +104,27 @@
 }
 
 .cart-item-title {
-    font-size: 1.15rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
     margin-bottom: 4px;
+    color: var(--dark-bg);
 }
 
-/* Red Trash Button */
 .trash-btn {
     background: transparent;
     border: none;
-    color: #F04438; /* Red */
+    color: var(--error-red);
     font-size: 1.1rem;
     cursor: pointer;
     transition: transform 0.2s;
 }
-.trash-btn:hover { transform: scale(1.1); }
+
+.trash-btn:hover { transform: scale(1.15); }
 
 .cart-item-meta {
     font-size: 0.85rem;
     color: var(--text-muted);
-    margin-bottom: auto; /* Pushes price to bottom */
+    margin-bottom: auto;
 }
 
 .item-bottom-row {
@@ -101,16 +134,17 @@
 }
 
 .cart-item-price {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--dark-bg);
 }
 
-/* Pill Quantity Selector */
+/* Quantity Controls (Pill Design) */
 .qty-pill {
     display: flex;
     align-items: center;
-    background: #f9f9f9;
-    border: 1px solid #EAEAEA;
+    background: var(--cf-grey-bg);
+    border: 1px solid var(--cf-border);
     border-radius: 50px;
     padding: 4px 12px;
 }
@@ -119,21 +153,24 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    font-size: 0.9rem;
-    color: var(--text-dark);
-    padding: 4px;
+    font-size: 1rem;
+    color: var(--dark-bg);
+    padding: 2px 6px;
+    font-weight: 700;
 }
 
 .qty-pill span {
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1rem;
-    margin: 0 16px;
+    margin: 0 14px;
 }
 
-/* --- RIGHT SIDE: ORDER SUMMARY --- */
+/* =========================================
+   4. ORDER SUMMARY (Right Side)
+   ========================================= */
 .cart-summary-card h2 {
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: 700;
     margin-bottom: 24px;
 }
 
@@ -145,33 +182,33 @@
 }
 
 .s-label { color: var(--text-muted); }
-.text-red { color: #F04438; }
+.text-red { color: var(--error-red); font-weight: 600; }
 
 .summary-divider {
     height: 1px;
-    background: var(--border-color);
+    background: var(--cf-border);
     margin: 20px 0;
 }
 
 .summary-line.total {
     font-size: 1.5rem;
-    font-weight: 700;
-    align-items: center;
+    font-weight: 800;
     margin-bottom: 30px;
+    color: var(--dark-bg);
 }
 
-/* Promo Box styling to match image */
+/* Promo Code Box */
 .promo-box {
     display: flex;
     align-items: center;
-    background: #f9f9f9;
-    border: 1px solid #EAEAEA;
+    background: var(--cf-grey-bg);
+    border: 1px solid var(--cf-border);
     border-radius: 50px;
     padding: 6px 6px 6px 20px;
     margin-bottom: 24px;
 }
 
-.promo-icon { color: var(--text-muted); font-size: 0.9rem; margin-right: 12px; }
+.promo-icon { color: var(--text-muted); margin-right: 12px; }
 
 .promo-box input {
     flex-grow: 1;
@@ -180,25 +217,94 @@
     outline: none;
     font-family: inherit;
     font-size: 0.95rem;
+    color: var(--dark-bg);
 }
 
 .apply-btn {
-    background: var(--text-dark);
-    color: #fff;
+    background: var(--dark-bg);
+    color: var(--primary-yellow);
     border: none;
     border-radius: 50px;
-    padding: 10px 24px;
-    font-weight: 500;
+    padding: 10px 22px;
+    font-weight: 700;
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
 }
-.apply-btn:hover { opacity: 0.8; }
 
-/* Checkout Button */
-.pill-btn { border-radius: 50px; width: 100%; font-size: 1rem; padding: 18px; }
+.apply-btn:hover {
+    background: var(--primary-yellow);
+    color: var(--dark-bg);
+}
 
-@media (max-width: 900px) {
+/* Global Solid Button styling for Checkout */
+.btn-solid.pill-btn.checkout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: var(--dark-bg);
+    color: var(--primary-yellow);
+    border: none;
+    border-radius: 50px;
+    padding: 18px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-solid.pill-btn.checkout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   5. RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 950px) {
     .cart-layout { grid-template-columns: 1fr; }
-    .cart-item-row { gap: 16px; }
-    .cart-item-img-box { width: 90px; height: 90px; }
+    .cart-page-title { font-size: 2rem; }
+    .cart-items-card { padding: 20px; }
+}
+
+@media (max-width: 600px) {
+    .cart-item-row { flex-direction: column; align-items: center; text-align: center; }
+    .item-header-row, .item-bottom-row { flex-direction: column; align-items: center; gap: 10px; }
+    .cart-item-img-box { width: 100%; height: 200px; }
+}
+
+/* =========================================
+   6. EMPTY CART STATE
+   ========================================= */
+.empty-cart-display {
+    text-align: center; 
+    padding: 60px 0;
+    grid-column: 1 / -1; /* Spans full width if needed */
+}
+
+.empty-cart-display p {
+    color: var(--text-muted); 
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+}
+
+/* Re-using your existing button style for the "Continue Shopping" link */
+.empty-cart-display .btn-solid {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark-bg);
+    color: var(--primary-yellow);
+    border-radius: 50px;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.empty-cart-display .btn-solid:hover {
+    background: var(--primary-yellow);
+    color: var(--dark-bg);
+    transform: translateY(-2px);
 }

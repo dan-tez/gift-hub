@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout | Luxe Gifts</title>
-    <link rel="stylesheet" href="../Css/styles.css">
+    <link rel="stylesheet" href="../Css/checkout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -51,12 +51,12 @@
 
                         <div id="address-wrapper" style="display: contents;">
                             <div class="input-group full-width">
-                                <label>Country <span class="required">*</span></label>
+                                <label>County <span class="required">*</span></label>
                                 <select class="custom-select" id="chk-country">
                                     <option value="">Choose country</option>
-                                    <option value="KE">Kenya</option>
-                                    <option value="UAE">United Arab Emirates</option>
-                                    <option value="US">United States</option>
+                                    <option value="KE">Kiambu</option>
+                                    <option value="UAE">Nairobi</option>
+                                    <option value="US">KirinyagaS</option>
                                 </select>
                             </div>
 
@@ -66,14 +66,10 @@
                             </div>
                             
                             <div class="input-group">
-                                <label>State/Region</label>
-                                <input type="text" id="chk-state" placeholder="Enter state">
+                                <label>Apartment</label>
+                                <input type="text" id="chk-state" placeholder="Enter Apartment">
                             </div>
                             
-                            <div class="input-group">
-                                <label>ZIP Code</label>
-                                <input type="text" id="chk-zip" placeholder="Enter ZIP code">
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -150,7 +146,7 @@
                     <div class="summary-divider"></div>
                     <div class="summary-line total">
                         <span class="s-label">Total</span>
-                        <strong id="chk-total">AED 0</strong>
+                        <strong id="chk-total">0</strong>
                     </div>
 
                     <button class="btn-solid pill-btn checkout-btn" id="pay-now-btn" style="margin-top: 20px;">

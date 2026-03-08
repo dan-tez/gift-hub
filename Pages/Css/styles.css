@@ -1,35 +1,26 @@
 @import url("../Header/header.css");
-@import url("contact.css");
-@import url("custom-basket.css");
-@import url("cart.css");
-@import url("checkout.css");
-@import url("gallery.css");
-@import url("about.css");
-@import url("director1.css");
-@import url("director2.css");
-@import url("director3.css");
-@import url("director4.css");
-@import url("director5.css");
-@import url("director6.css");
-@import url("director7.css");
-@import url("directors.css");
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap');
 
-/* =========================================
-   CARREFOUR-STYLE E-COMMERCE UI (LUXE BRANDING)
-   ========================================= */
 :root {
     --dark-bg: #1a1a1a;
     --text-light: #ffffff;
     --primary-yellow: #ffcc00;
-    --cf-grey-bg: #F5F7FA;
-    --cf-border: #EAEAEA;
+    --grey-bg: #F5F7FA;
+    --border-soft: #EAEAEA;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body.hyper-ecommerce-body {
-    background-color: var(--cf-grey-bg);
+    background-color: var(--grey-bg);
     color: var(--dark-bg);
     font-family: 'Jost', sans-serif;
-    margin: 0;
+    line-height: 1.5;
 }
 
 .store-layout {
@@ -38,8 +29,10 @@ body.hyper-ecommerce-body {
     padding: 20px 5% 100px;
 }
 
-/* 1. Promotional Hero */
+/* 2. PROMOTIONAL HERO BANNER 
+   -------------------------------------------------------------------------- */
 .promo-hero { margin-bottom: 24px; }
+
 .promo-banner {
     background: var(--dark-bg);
     border-radius: 12px;
@@ -49,7 +42,9 @@ body.hyper-ecommerce-body {
     overflow: hidden;
     height: 220px;
 }
+
 .promo-text { padding: 30px 40px; color: var(--text-light); flex: 1; }
+
 .promo-text .badge {
     background: var(--primary-yellow);
     color: var(--dark-bg);
@@ -61,7 +56,9 @@ body.hyper-ecommerce-body {
     display: inline-block;
     margin-bottom: 16px;
 }
+
 .promo-text h2 { font-size: 2rem; margin-bottom: 16px; font-weight: 600; }
+
 .shop-now-link {
     color: var(--primary-yellow);
     text-decoration: none;
@@ -71,156 +68,162 @@ body.hyper-ecommerce-body {
     gap: 8px;
     font-size: 1.1rem;
 }
+
+/* Image mask creates that smooth fade effect into the black background */
 .promo-banner img {
     height: 100%; width: 45%; object-fit: cover;
     mask-image: linear-gradient(to right, transparent, black 25%);
     -webkit-mask-image: linear-gradient(to right, transparent, black 25%);
 }
 
-/* 2. Circular Quick Categories */
+/* 3. QUICK NAVIGATION (CIRCULAR CATEGORIES) 
+   -------------------------------------------------------------------------- */
 .quick-categories {
     background: #fff;
     border-radius: 12px;
     padding: 24px 20px;
     margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    box-shadow: var(--shadow-sm);
 }
+
 .qc-track {
     display: flex; gap: 24px; overflow-x: auto;
     scrollbar-width: none; padding-bottom: 10px;
 }
 .qc-track::-webkit-scrollbar { display: none; }
+
 .qc-item {
     display: flex; flex-direction: column; align-items: center;
     text-decoration: none; color: var(--dark-bg); min-width: 85px;
 }
+
 .qc-img {
-    width: 75px; 
-    height: 75px; 
-    border-radius: 12px !important; /* Changed from 50% to 12px for rounded squares */
-    background: #f4f4f4; 
-    overflow: hidden; 
-    margin-bottom: 12px;
-    border: 2px solid transparent ; 
-    transition: border-color 0.2s, transform 0.2s;
+    width: 75px; height: 75px; 
+    border-radius: 12px !important; /* Forces rounded squares instead of circles */
+    background: #f4f4f4; overflow: hidden; margin-bottom: 12px;
+    border: 2px solid transparent; transition: all 0.2s;
 }
+
 .qc-img img { width: 100%; height: 100%; object-fit: cover; }
+
 .qc-item:hover .qc-img {
     border-color: var(--primary-yellow);
     transform: translateY(-3px);
 }
+
 .qc-item span { font-size: 0.9rem; font-weight: 600; text-align: center; }
 
-/* 3. Mid Banner Ad */
+/* 4. MID-PAGE CALL TO ACTION BANNER 
+   -------------------------------------------------------------------------- */
 .mid-banner {
     background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-    border: 1px solid var(--cf-border);
+    border: 1px solid var(--border-soft);
     border-radius: 12px;
     padding: 30px 40px;
     display: flex; justify-content: space-between; align-items: center;
     margin-bottom: 30px;
 }
-.mb-content h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; color: var(--dark-bg); }
+
+.mb-content h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
 .mb-content p { color: #555; font-size: 1rem; }
+
 .mb-btn {
     background: var(--dark-bg); color: var(--primary-yellow);
     padding: 12px 28px; border-radius: 8px; text-decoration: none;
-    font-weight: 700; white-space: nowrap; transition: opacity 0.2s;
+    font-weight: 700; transition: opacity 0.2s;
 }
-.mb-btn:hover { opacity: 0.9; }
 
-/* 4. Storefront Rows (White Container Blocks) */
+/* 5. DYNAMIC PRODUCT GRID (THE LUXE SYSTEM) 
+   -------------------------------------------------------------------------- */
 .dynamic-rows { display: flex; flex-direction: column; gap: 24px; }
 
+/* White container block for each category section */
 .category-row {
     background: #ffffff;
     padding: 24px 24px 30px;
     border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    box-shadow: var(--shadow-sm);
 }
 
 .row-header {
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 24px; padding: 0;
+    margin-bottom: 24px;
 }
-.row-header h3 { font-size: 1.4rem; font-weight: 700; color: var(--dark-bg); text-transform: capitalize; }
+
+.row-header h3 { font-size: 1.4rem; font-weight: 700; text-transform: capitalize; }
+
 .view-all-app {
     color: var(--dark-bg); text-decoration: none; font-weight: 700; font-size: 0.9rem;
     background: var(--primary-yellow); padding: 8px 20px; border-radius: 50px;
     transition: transform 0.2s;
 }
-.view-all-app:hover { transform: scale(1.05); }
 
-/* The Carrefour Product Card */
-.cf-product-card {
+/* THE PRODUCT CARD */
+.luxe-product-card {
     min-width: 210px; max-width: 210px;
     background: #fff; border-radius: 12px;
-    border: 1px solid var(--cf-border);
+    border: 1px solid var(--border-soft);
     scroll-snap-align: start; flex-shrink: 0;
     display: flex; flex-direction: column;
-    padding: 16px; 
-    transition: border-color 0.2s, box-shadow 0.2s;
+    padding: 16px; transition: all 0.2s;
 }
-.cf-product-card:hover {
+
+.luxe-product-card:hover {
     border-color: var(--primary-yellow);
     box-shadow: 0 4px 12px rgba(255, 204, 0, 0.15);
 }
-.cf-img-box {
-    width: 100%; 
-    aspect-ratio: 1 / 1; /* This forces a perfect square no matter the screen size */
-    margin-bottom: 16px;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    overflow: hidden; /* Keeps the image neatly inside */
-    border-radius: 8px; /* Optional: adds a slight curve to the image box itself */
-    background: #ffffff; /* Ensures the background of the square is clean */
+
+.luxe-img-box {
+    width: 100%; aspect-ratio: 1 / 1;
+    margin-bottom: 16px; display: flex; align-items: center; 
+    justify-content: center; overflow: hidden; border-radius: 8px;
 }
 
-.cf-img-box img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; /* 'cover' forces the image to fill the entire square. */ 
-    border-radius: 0 !important;
+.luxe-img-box img { 
+    width: 100%; height: 100%; object-fit: cover; 
+    border-radius: 0 !important; /* Prevents global circular styling */
 }
 
-.cf-info { flex-grow: 1; display: flex; flex-direction: column; }
-.cf-price {
+.luxe-price {
     font-size: 1.25rem; font-weight: 800; color: var(--dark-bg);
     margin-bottom: 8px; display: flex; flex-direction: column; line-height: 1.1;
 }
-.cf-old-price {
+
+.luxe-old-price {
     font-size: 0.85rem; color: #999; text-decoration: line-through;
     font-weight: 500; margin-bottom: 2px;
 }
-.cf-name {
+
+.luxe-name {
     font-size: 0.9rem; color: #4A4A4A; line-height: 1.4;
     height: 40px; margin-bottom: 16px; display: -webkit-box;
-    -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-weight: 500;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical; 
+    overflow: hidden; font-weight: 500;
 }
 
-/* Massive Full-Width Add Button */
-.cf-add-btn {
-    width: 100%;
-    background: var(--dark-bg);
-    color: var(--primary-yellow);
+/* Full-width "Add" button docked to card bottom */
+.luxe-add-btn {
+    width: 100%; background: var(--dark-bg); color: var(--primary-yellow);
     border: none; padding: 12px; border-radius: 50px; 
     font-size: 0.95rem; font-weight: 700; cursor: pointer;
     display: flex; justify-content: center; align-items: center; gap: 8px;
     transition: all 0.2s;
 }
-.cf-add-btn:hover { background: var(--primary-yellow); color: var(--dark-bg); }
 
-/* Scroll Track Adjustment */
+.luxe-add-btn:hover { background: var(--primary-yellow); color: var(--dark-bg); }
+
+/* Horizontal scrolling track */
 .app-scroll-track {
     display: flex; gap: 16px; overflow-x: auto;
     padding-bottom: 8px; scroll-snap-type: x mandatory; scrollbar-width: none;
 }
 .app-scroll-track::-webkit-scrollbar { display: none; }
 
-/* Responsive adjustments */
+/* 6. RESPONSIVE BREAKPOINTS 
+   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
     .promo-banner { flex-direction: column; height: auto; text-align: center; }
     .promo-banner img { width: 100%; height: 150px; mask-image: none; -webkit-mask-image: none; }
     .mid-banner { flex-direction: column; text-align: center; gap: 16px; }
+    .luxe-product-card { min-width: 180px; max-width: 180px; }
 }

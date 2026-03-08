@@ -23,14 +23,14 @@ function renderCartPage() {
     // Handle Empty Cart
     if (currentCart.length === 0) {
         container.innerHTML = `
-            <div style="text-align: center; padding: 40px 0;">
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Your cart is currently empty.</p>
-                <a href="/index.html" class="btn-solid pill-btn" style="width: auto;">Continue Shopping</a>
+            <div class="empty-cart-display">
+                <p>Your cart is currently empty.</p>
+                <a href="/index.html" class="btn-solid pill-btn">Continue Shopping</a>
             </div>
         `;
-        subtotalEl.innerText = `AED 0`;
-        deliveryEl.innerText = `AED 0`;
-        totalEl.innerText = `AED 0`;
+        subtotalEl.innerText = `0`;
+        deliveryEl.innerText = `0`;
+        totalEl.innerText = `0`;
         discountRow.style.display = 'none';
         checkoutBtn.disabled = true;
         return;
@@ -60,7 +60,7 @@ function renderCartPage() {
                 <p class="cart-item-meta">Category: ${item.category}</p>
                 
                 <div class="item-bottom-row">
-                    <span class="cart-item-price">AED ${item.price.toLocaleString()}</span>
+                    <span class="cart-item-price">${item.price.toLocaleString()}</span>
                     
                     <div class="qty-pill">
                         <button onclick="updateItemQty(${item.id}, -1)"><i class="fa-solid fa-minus"></i></button>
@@ -79,7 +79,7 @@ function renderCartPage() {
         discountAmount = subtotalValue * discountPercent;
         discountRow.style.display = 'flex';
         discountLabel.innerText = `(-${discountPercent * 100}%)`;
-        discountAmountEl.innerText = `-AED ${discountAmount.toLocaleString()}`;
+        discountAmountEl.innerText = `-${discountAmount.toLocaleString()}`;
     } else {
         discountRow.style.display = 'none';
     }
@@ -87,9 +87,9 @@ function renderCartPage() {
     const finalTotal = (subtotalValue - discountAmount) + DELIVERY_FEE;
 
     // Update DOM
-    subtotalEl.innerText = `AED ${subtotalValue.toLocaleString()}`;
-    deliveryEl.innerText = `AED ${DELIVERY_FEE}`;
-    totalEl.innerText = `AED ${finalTotal.toLocaleString()}`;
+    subtotalEl.innerText = `${subtotalValue.toLocaleString()}`;
+    deliveryEl.innerText = `${DELIVERY_FEE}`;
+    totalEl.innerText = `${finalTotal.toLocaleString()}`;
     checkoutBtn.disabled = false;
 }
 
