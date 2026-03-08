@@ -1,38 +1,153 @@
-/* header.css */
-:root {
-    /* Copy your variables here if header.css is used independently */
-    --dark-bg: #1a1a1a;
-    --text-light: #ffffff;
-    --primary-yellow: #ffcc00;
-    --transition: 0.3s ease;
+/* =========================================
+   MODERN E-COMMERCE HEADER
+   ========================================= */
+.site-header {
+    background-color: var(--dark-bg, #1a1a1a);
+    color: var(--text-light, #ffffff);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 5%; /* Slightly slimmer for an app-like feel */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    font-family: 'Jost', sans-serif;
 }
 
-header { 
-    background-color: var(--dark-bg); 
-    color: var(--text-light); 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 20px 5%; 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+/* Logo Styling */
+.site-header .logo h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+    color: var(--text-light, #ffffff);
 }
 
-.logo h1 { font-size: 2rem; font-weight: 800; text-transform: uppercase; margin: 0;}
-.logo span { color: var(--primary-yellow); }
-
-nav ul { list-style: none; display: flex; gap: 25px; }
-nav ul li a { text-decoration: none; color: var(--text-light); font-weight: 600; transition: var(--transition); }
-
-/* The CSS-only highlighting logic we discussed */
-#home-page .nav-home,
-#basket-page .nav-basket,
-#about-page .nav-about,
-#gallery-page .nav-gallery,
-#contact-page .nav-contact {
-    color: var(--primary-yellow);
+.site-header .logo span {
+    color: var(--primary-yellow, #ffcc00);
 }
 
-nav ul li a:hover { color: var(--primary-yellow); }
+/* Navigation Links */
+.site-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header nav a {
+    text-decoration: none;
+    color: var(--text-light, #ffffff);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.site-header nav a:hover {
+    color: var(--primary-yellow, #ffcc00);
+}
+
+/* Sleek animated underline effect on hover */
+.site-header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-yellow, #ffcc00);
+    transition: width 0.3s ease;
+}
+
+.site-header nav a:hover::after {
+    width: 100%;
+}
+
+/* The active state for the current page (if applied) */
+.site-header nav a.active {
+    color: var(--primary-yellow, #ffcc00);
+}
+.site-header nav a.active::after {
+    width: 100%;
+}
+
+/* Cart Action Container */
+.site-header .nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+.site-header .cart-icon-wrapper {
+    position: relative;
+    color: var(--text-light, #ffffff);
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.site-header .cart-icon-wrapper:hover {
+    transform: scale(1.1);
+    color: var(--primary-yellow, #ffcc00);
+}
+
+/* Premium Notification Badge */
+.site-header .cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -12px;
+    background-color: var(--primary-yellow, #ffcc00);
+    color: var(--dark-bg, #1a1a1a);
+    font-size: 0.75rem;
+    font-weight: 800;
+    min-width: 22px; /* Changed to min-width so it expands if quantity > 9 */
+    height: 22px;
+    padding: 0 6px; 
+    border-radius: 50px; /* Creates a pill shape for double-digits */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--dark-bg, #1a1a1a); /* Creates a "cutout" effect against the dark header */
+    transition: transform 0.2s ease;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .site-header {
+        flex-wrap: wrap; /* Allows the nav to drop below the logo/cart */
+        padding: 16px 20px;
+    }
+    
+    .site-header .nav-actions {
+        order: 2; /* Keeps cart at the top right */
+    }
+
+    .site-header nav {
+        order: 3; /* Pushes nav to the bottom row */
+        width: 100%;
+        margin-top: 16px;
+        overflow-x: auto; /* Allows horizontal scrolling of links on small screens */
+        padding-bottom: 8px;
+        scrollbar-width: none;
+    }
+
+    .site-header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .site-header nav ul {
+        gap: 24px;
+    }
+
+    .site-header nav a {
+        white-space: nowrap; /* Prevents text wrapping */
+        font-size: 0.95rem;
+    }
+}

@@ -1,6 +1,5 @@
-/* =========================================
-   1. CORE THEME & VARIABLES
-   ========================================= */
+@import url("../Header/header.css");
+
 :root {
     --text-primary: #101828;
     --text-secondary: #475467;

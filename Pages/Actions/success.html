@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed | Luxe Gifts</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Core Variables & Reset */
+        :root {
+            --text-dark: #1A1A1A;
+            --text-muted: #666666;
+            --bg-main: #FFFFFF;
+            --bg-warm: #F9F8F6;
+            --border-color: #EAEAEA;
+            --font-family: 'Jost', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+
+        body.editorial-body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        /* Buttons */
+        .btn-solid {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 40px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background-color: var(--text-dark);
+            color: #fff;
+            border: 1px solid var(--text-dark);
+        }
+
+        .btn-solid:hover {
+            background-color: transparent;
+            color: var(--text-dark);
+        }
+
+        .pill-btn {
+            border-radius: 50px;
+        }
+
+        /* Success Page Layout */
+        .success-container {
+            max-width: 600px;
+            margin: 80px auto 150px;
+            padding: 0 5%;
+            text-align: center;
+            animation: fadeInSlideUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .success-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: var(--text-dark);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 20px rgba(26, 26, 26, 0.2);
+        }
+
+        .success-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .success-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .order-details-box {
+            background: var(--bg-warm);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .order-details-box strong {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .success-note {
+            color: var(--text-muted);
+            margin-top: 12px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .success-card { padding: 40px 20px; }
+            .success-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body class="editorial-body">
+    
+    <header id="main-header" class="site-header"></header>
+
+    <main class="success-container">
+        <div class="success-card">
+            <div class="success-icon-wrapper">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            
+            <h1 class="success-title">Order Confirmed</h1>
+            <p class="success-subtitle" id="customer-name">Thank you for your purchase!</p>
+            
+            <div class="order-details-box">
+                <p><strong>Order Number:</strong> <span id="order-number">#LX-00000</span></p>
+                <p class="success-note">We've received your order and are getting it ready. A receipt and shipping updates have been sent to your email.</p>
+            </div>
+
+            <a href="/index.html" class="btn-solid pill-btn">Continue Shopping</a>
+        </div>
+    </main>
+
+    <script>
+      
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const randomNum = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('order-number').innerText = '#LX-' + randomNum;
+            
+        });
+    </script>
+</body>
+</html>

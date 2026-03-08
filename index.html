@@ -3,181 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Gifts | Home</title>
-    <link rel="stylesheet" href="./Pages/Css/styles.css">
+    <title>Luxe Gifts | Premium Gifting Store</title>
+    
+    <link rel="stylesheet" href="./Pages/Css/styles.css"> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header id="main-header"></header>
+<body class="hyper-ecommerce-body">
+    
+    <header id="main-header" class="site-header"></header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Unforgettable Gifts</h2>
-            <p>Premium watches, designer handbags, and bespoke gift baskets.</p>
-        </div>
-    </section>
-
-    <div class="container">
+    <main class="store-layout">
         
-        <section class="category-row">]
-            <div class="category-header">
-                <h3>Watches</h3><a href="#" class="view-all">View All &rarr;</a>
-            </div>
-            <div class="product-grid" id="watches">
-                <div class="product-card" id="template-watches">
-                    <img src="" alt="" class="product-img" id="img-watches">
-                    <div class="product-info" id="watches-info">
-                        <span class="product-category">Watches</span>
-                        <h4 class="product-name" id="name-watches"></h4>
-                        <p class="price" id="price-watches"></p>
-                        <button class="btn add-to-cart-btn" id="btn-watches">Add to Cart</button>
-                    </div>
+        <section class="promo-hero">
+            <div class="promo-banner">
+                <div class="promo-text">
+                    <span class="badge">Limited Offer</span>
+                    <h2>Elevate Your Gifting Experience</h2>
+                    <p style="margin-bottom: 20px; color: rgba(255,255,255,0.8);">Discover our curated collection of luxury essentials.</p>
+                    <a href="#section-perfumes" class="shop-now-link">Explore Collection <i class="fa-solid fa-chevron-right"></i></a>
                 </div>
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47714263f?q=80&w=800" alt="Luxe Fragrances">
             </div>
         </section>
 
-        <section class="category-row">
-            <div class="category-header">
-                <h3>Handbags</h3><a href="#" class="view-all">View All &rarr;</a>
+        <nav class="quick-categories">
+            <div class="qc-track">
+                <a href="#section-watches" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=200" alt="Watches"></div>
+                    <span>Watches</span>
+                </a>
+                <a href="#section-handbags" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=200" alt="Bags"></div>
+                    <span>Bags</span>
+                </a>
+                <a href="#section-perfumes" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=200" alt="Perfumes"></div>
+                    <span>Perfumes</span>
+                </a>
+                <a href="Pages/custom-basket.html" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=200" alt="Custom"></div>
+                    <span>Build Box</span>
+                </a>
+                <a href="#section-jewelry" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1599643478514-4a820cbf311e?q=80&w=200" alt="Jewelry"></div>
+                    <span>Jewelry</span>
+                </a>
+                <a href="#section-sunglasses" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=200" alt="Sunglasses"></div>
+                    <span>Eyewear</span>
+                </a>
             </div>
-            <div class="product-grid" id="handbags">
-                <div class="product-card" id="template-handbags">
-                    <img src="" alt="" class="product-img" id="img-handbags">
-                    <div class="product-info" id="handbags-info">
-                        <span class="product-category">Handbags</span>
-                        <h4 class="product-name" id="name-handbags"></h4>
-                        <p class="price" id="price-handbags"></p>
-                        <button class="btn add-to-cart-btn" id="btn-handbags">Add to Cart</button>
-                    </div>
-                </div>
+        </nav>
+
+        <section class="mid-banner">
+            <div class="mb-content">
+                <h3>Bespoke Gift Builder</h3>
+                <p>Personalize every detail from the packaging to the final message.</p>
             </div>
+            <a href="Pages/custom-basket.html" class="mb-btn">Start Building</a>
         </section>
 
-        <section class="category-row">
-            <div class="category-header">
-                <h3>Perfumes</h3><a href="#" class="view-all">View All &rarr;</a>
-            </div>
-            <div class="product-grid" id="perfumes">
-                <div class="product-card" id="template-perfumes">
-                    <img src="" alt="" class="product-img" id="img-perfumes">
-                    <div class="product-info" id="perfumes-info">
-                        <span class="product-category">Perfumes</span>
-                        <h4 class="product-name" id="name-perfumes"></h4>
-                        <p class="price" id="price-perfumes"></p>
-                        <button class="btn add-to-cart-btn" id="btn-perfumes">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div id="storefront" class="dynamic-rows"></div>
 
-        <section class="category-row">
-            <div class="category-header">
-                <h3>Wallets</h3><a href="#" class="view-all">View All &rarr;</a>
-            </div>
-            <div class="product-grid" id="wallets">
-                <div class="product-card" id="template-wallets">
-                    <img src="" alt="" class="product-img" id="img-wallets">
-                    <div class="product-info" id="wallets-info">
-                        <span class="product-category">Wallets</span>
-                        <h4 class="product-name" id="name-wallets"></h4>
-                        <p class="price" id="price-wallets"></p>
-                        <button class="btn add-to-cart-btn" id="btn-wallets">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="category-row">
-            <div class="category-header">
-                <h3>Sunglasses</h3><a href="#" class="view-all">View All &rarr;</a>
-            </div>
-            <div class="product-grid" id="sunglasses">
-                <div class="product-card" id="template-sunglasses">
-                    <img src="" alt="" class="product-img" id="img-sunglasses">
-                    <div class="product-info" id="sunglasses-info">
-                        <span class="product-category">Sunglasses</span>
-                        <h4 class="product-name" id="name-sunglasses"></h4>
-                        <p class="price" id="price-sunglasses"></p>
-                        <button class="btn add-to-cart-btn" id="btn-sunglasses">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="category-row">
-            <div class="category-header">
-                <h3>Belts</h3><a href="#" class="view-all">View All &rarr;</a>
-            </div>
-            <div class="product-grid" id="belts">
-                <div class="product-card" id="template-belts">
-                    <img src="" alt="" class="product-img" id="img-belts">
-                    <div class="product-info" id="belts-info">
-                        <span class="product-category">Belts</span>
-                        <h4 class="product-name" id="name-belts"></h4>
-                        <p class="price" id="price-belts"></p>
-                        <button class="btn add-to-cart-btn" id="btn-belts">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="category-row">
-            <div class="category-header">
-                <h3>Jewelry</h3><a href="#" class="view-all">View All &rarr;</a>
-            </div>
-            <div class="product-grid" id="jewelry">
-                <div class="product-card" id="template-jewelry">
-                    <img src="" alt="" class="product-img" id="img-jewelry">
-                    <div class="product-info" id="jewelry-info">
-                        <span class="product-category">Jewelry</span>
-                        <h4 class="product-name" id="name-jewelry"></h4>
-                        <p class="price" id="price-jewelry"></p>
-                        <button class="btn add-to-cart-btn" id="btn-jewelry">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="category-row">
-            <div class="category-header">
-                <h3>Hats</h3><a href="#" class="view-all">View All &rarr;</a>
-            </div>
-            <div class="product-grid" id="hats">
-                <div class="product-card" id="template-hats">
-                    <img src="" alt="" class="product-img" id="img-hats">
-                    <div class="product-info" id="hats-info">
-                        <span class="product-category">Hats</span>
-                        <h4 class="product-name" id="name-hats"></h4>
-                        <p class="price" id="price-hats"></p>
-                        <button class="btn add-to-cart-btn" id="btn-hats">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="category-row">
-            <div class="category-header">
-                <h3>Scarves</h3><a href="#" class="view-all">View All &rarr;</a>
-            </div>
-            <div class="product-grid" id="scarves">
-                <div class="product-card" id="template-scarves">
-                    <img src="" alt="" class="product-img" id="img-scarves">
-                    <div class="product-info" id="scarves-info">
-                        <span class="product-category">Scarves</span>
-                        <h4 class="product-name" id="name-scarves"></h4>
-                        <p class="price" id="price-scarves"></p>
-                        <button class="btn add-to-cart-btn" id="btn-scarves">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </div>
+    </main>
 
     <div id="toast"></div>
-    <footer><p>&copy; 2026 Lux Gifts. SSE 2210 Project.</p></footer>
-    
-    <script src="Js/products.js"></script>
-    <script src="Js/script.js"></script>
-    
+
+    <footer class="site-footer" style="background: #fff; padding: 40px 5%; border-top: 1px solid #eaeaea; margin-top: 60px; text-align: center;">
+        <div class="footer-bottom">
+            <p style="font-weight: 600; color: #1a1a1a;">&copy; 2026 Luxe Gifts. SSE 2210 Project.</p>
+        </div>
+    </footer>
+
+    <script src="./Js/products.js"></script>
+    <script src="./Js/script.js"></script>
 </body>
 </html>

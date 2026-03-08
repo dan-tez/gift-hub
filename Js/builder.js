@@ -316,33 +316,49 @@ function openReviewModal() {
 document.getElementById('close-modal').addEventListener('click', () => checkoutModal.classList.remove('active'));
 checkoutModal.addEventListener('click', (e) => { if (e.target === checkoutModal) checkoutModal.classList.remove('active'); });
 
-// Mock Payment
+/// ==========================================
+// 6. ROUTE TO GLOBAL CHECKOUT
+// ==========================================
 const payBtn = document.getElementById('pay-btn');
 if(payBtn) {
     payBtn.addEventListener('click', () => {
-        payBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
+        // Show a premium loading state
+        payBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Securing your box...';
         payBtn.disabled = true;
 
         setTimeout(() => {
-            showToast('Payment successful! Your custom box is being prepared.');
+            // 1. Calculate the final total of everything in the builder
+            const total = basket.reduce((sum, item) => sum + item.price, 0) + 
+                          (selectedPackaging?.price || 0) + 
+                          (selectedCard?.price || 0);
+
+            // 2. Package this entire custom build into a single Cart Item object
+            const customBoxItem = {
+                id: 'custom-box-' + Date.now(), // Unique ID so it doesn't conflict
+                name: 'Bespoke Curated Box',
+                category: 'Custom Gift',
+                price: total,
+                // Use the selected box image, or a fallback if none
+                image: selectedPackaging ? selectedPackaging.image : 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=400', 
+                qty: 1
+            };
+
+            // 3. Push it to the global cart in localStorage
+            let currentCart = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
+            currentCart.push(customBoxItem);
+            localStorage.setItem('luxeCartItems', JSON.stringify(currentCart));
+
+            // Update the standard counter
+            let currentCount = parseInt(localStorage.getItem('luxeCartCount')) || 0;
+            localStorage.setItem('luxeCartCount', currentCount + 1);
+
+            // 4. Send the user to the unified checkout page!
+            window.location.href = '/Pages/Actions/checkout.html'; 
             
-            // Reset state
-            basket = [];
-            selectedPackaging = null;
-            selectedCard = null;
-            if(giftRecipientEl) giftRecipientEl.value = '';
-            if(giftMessageEl) giftMessageEl.value = '';
-            document.querySelectorAll('.selection-card').forEach(el => el.classList.remove('selected'));
-            
-            updateBasketUI();
-            checkoutModal.classList.remove('active');
-            goToStep(1); 
-            
-            payBtn.innerHTML = 'Proceed to Payment <i class="fa-solid fa-lock"></i>';
-            payBtn.disabled = false;
-        }, 2000); 
+        }, 800); // Short delay for a smooth UX transition
     });
 }
+
 
 // ==========================================
 // 7. TOAST UTILITY
