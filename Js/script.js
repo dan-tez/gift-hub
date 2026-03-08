@@ -12,6 +12,7 @@ const categoriesList = [
 
 document.addEventListener("DOMContentLoaded", () => {
     loadHeader();
+    loadFooter();
     
     if (typeof products !== 'undefined') {
         populateStorefront(); 
@@ -134,6 +135,22 @@ function loadHeader() {
         .catch(error => console.warn('Header fetch skipped or failed:', error));
 }
 
+function loadFooter() {
+    const inSubfolder = window.location.pathname.includes('/Pages/');
+    const footerPath = inSubfolder ? '/Pages/Footer/footer.html' : './Pages/Footer/footer.html';
+
+    fetch(footerPath)
+        .then(response => response.text())
+        .then(data => {
+            // Find or create a footer tag
+            let footerContainer = document.querySelector('footer');
+            if (!footerContainer) {
+                footerContainer = document.createElement('footer');
+                document.body.appendChild(footerContainer);
+            }
+            footerContainer.outerHTML = data;
+        });
+}
 window.showToast = function(message) {
     const toast = document.getElementById("toast");
     if(!toast) return;

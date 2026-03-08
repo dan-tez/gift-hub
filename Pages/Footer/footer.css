@@ -1,0 +1,99 @@
+/* =========================================
+   UNIVERSAL LUXE FOOTER (Independent)
+   ========================================= */
+.luxe-footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 5% 20px;
+    font-family: 'Jost', sans-serif;
+    border-top: 4px solid #ffcc00;
+    margin-top: 80px;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 40px;
+}
+
+.footer-col h4 {
+    color: #ffcc00;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.brand-col .logo h1 { font-size: 1.8rem; margin-bottom: 15px; }
+.brand-col .logo span { color: #ffcc00; }
+.brand-col p { color: #999; font-size: 0.95rem; line-height: 1.6; }
+
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.95rem;
+}
+.footer-col ul li a:hover { color: #ffcc00; }
+
+.social-links { display: flex; gap: 15px; margin-top: 20px; }
+.social-links a {
+    color: #fff;
+    font-size: 1.2rem;
+    background: #333;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+.social-links a:hover { background: #ffcc00; color: #1a1a1a; }
+
+/* Newsletter Styling */
+.newsletter p { font-size: 0.9rem; color: #999; margin-bottom: 15px; }
+.footer-input-group {
+    display: flex;
+    background: #222;
+    padding: 5px;
+    border-radius: 50px;
+    border: 1px solid #333;
+}
+.footer-input-group input {
+    background: transparent;
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    flex: 1;
+    outline: none;
+}
+.footer-input-group button {
+    background: #ffcc00;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #1a1a1a;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .footer-container { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .footer-container { grid-template-columns: 1fr; }
+}
