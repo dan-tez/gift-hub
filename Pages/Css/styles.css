@@ -1,6 +1,7 @@
 @import url("../Header/header.css");
 @import url("contact.css");
 @import url("custom-basket.css");
+<<<<<<< HEAD
 @import url("cart.css");
 @import url("checkout.css");
 
@@ -10,6 +11,18 @@
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
+=======
+@import url("gallery.css");
+@import url("about.css");
+@import url("director1.css");
+@import url("director2.css");
+@import url("director3.css");
+@import url("director4.css");
+@import url("director5.css");
+@import url("director6.css");
+@import url("director7.css");
+@import url("directors.css");
+>>>>>>> 536515185efa4eb8118129259984a4f54159c05b
 :root {
     /* Editorial Luxe Palette */
     --text-dark: #1A1A1A;
