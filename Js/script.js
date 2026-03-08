@@ -2,6 +2,7 @@
 // 1. STATE & INITIALIZATION
 // ==========================================
 let cartCount = parseInt(localStorage.getItem('luxeCartCount')) || 0;
+let cartItems = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
 
 // Defines the order categories appear on the homepage
 const categoriesList = [
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 2. DYNAMIC STOREFRONT RENDERER (Editorial Style)
+// 2. DYNAMIC STOREFRONT (Carrefour Architecture)
 // ==========================================
 function populateStorefront() {
     const storefrontContainer = document.getElementById('storefront');
@@ -34,32 +35,42 @@ function populateStorefront() {
 
         const baseKey = category.toLowerCase().replace(' ', '-');
         
+        // The white container block for the whole category row
         const section = document.createElement('section');
-        section.className = 'category-row';
+        section.className = 'category-row'; 
         section.id = `section-${baseKey}`;
         
         let productsHTML = '';
         categoryProducts.forEach(product => {
+            // Calculate a fake "old price" (20% higher) to mimic Carrefour discounts
+            const oldPrice = Math.floor(product.price * 1.2);
+
             productsHTML += `
-                <div class="ed-product-card" id="card-${product.id}">
-                    <div class="ed-img-wrapper">
+                <div class="cf-product-card" id="card-${product.id}">
+                    <div class="cf-img-box">
                         <img src="${product.image}" alt="${product.name}" loading="lazy">
-                        <button class="ed-add-btn" onclick="addToCart('${product.name}')">Add to Cart</button>
                     </div>
-                    <div class="ed-product-info">
-                        <h3 class="ed-p-name">${product.name}</h3>
-                        <span class="ed-p-price">AED ${product.price.toLocaleString()}</span>
+                    <div class="cf-info">
+                        <div class="cf-price">
+                            <span class="cf-old-price">AED ${oldPrice.toLocaleString()}</span>
+                            AED ${product.price.toLocaleString()}
+                        </div>
+                        <span class="cf-name">${product.name}</span>
                     </div>
+                    <button class="cf-add-btn" onclick="addToCart('${product.name}')">
+                        <i class="fa-solid fa-plus"></i> Add
+                    </button>
                 </div>
             `;
         });
 
+        // Combine the header and the horizontal scroll track
         section.innerHTML = `
-            <div class="category-header">
+            <div class="row-header">
                 <h3>${category}</h3>
-                <a href="builder.html" class="view-all">Shop ${category}</a>
+                <a href="#" class="view-all-app">See All</a>
             </div>
-            <div class="scroll-track" id="${baseKey}-track">
+            <div class="app-scroll-track" id="${baseKey}-track">
                 ${productsHTML}
             </div>
         `;
@@ -69,48 +80,48 @@ function populateStorefront() {
 }
 
 // ==========================================
-// 3. CART & UI INTERACTIONS
+// 3. CART LOGIC
 // ==========================================
+function updateCartDisplay() {
+    const cartElement = document.getElementById('cart-count');
+    if (cartElement) {
+        const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
+        cartElement.innerText = totalItems;
+        
+        // Quick pop animation
+        cartElement.style.transform = 'scale(1.2)';
+        setTimeout(() => cartElement.style.transform = 'scale(1)', 200);
+    }
+}
 
+window.addToCart = function(productName) {
+    const product = products.find(p => p.name === productName);
+    if (!product) return;
 
-window.showToast = function(message) {
-    const toast = document.getElementById("toast");
-    if(!toast) return;
+    const existingItem = cartItems.find(item => item.id === product.id);
     
-    // Create the toast UI dynamically if it doesn't have styling
-    toast.style.position = 'fixed';
-    toast.style.bottom = '30px';
-    toast.style.right = '30px';
-    toast.style.background = '#1A1A1A';
-    toast.style.color = '#fff';
-    toast.style.padding = '16px 24px';
-    toast.style.fontSize = '0.9rem';
-    toast.style.zIndex = '9999';
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(20px)';
-    toast.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-    
-    toast.innerText = message;
-    
-    // Trigger animation
-    setTimeout(() => {
-        toast.style.opacity = '1';
-        toast.style.transform = 'translateY(0)';
-    }, 10);
-    
-    setTimeout(() => { 
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(20px)';
-    }, 3000);
+    if (existingItem) {
+        existingItem.qty += 1;
+    } else {
+        cartItems.push({ ...product, qty: 1 });
+    }
+
+    localStorage.setItem('luxeCartItems', JSON.stringify(cartItems));
+    updateCartDisplay();
+    showToast(`${product.name} added to cart!`);
 };
 
 // ==========================================
-// 4. HEADER LOADER
+// 4. UTILITIES (Header & Toast)
 // ==========================================
 function loadHeader() {
-    fetch('/Pages/Header/header.html')
+    // Allows the header to load properly if you are in the root folder or the Pages folder
+    const inSubfolder = window.location.pathname.includes('/Pages/');
+    const headerPath = inSubfolder ? '../Pages/Header/header.html' : './Pages/Header/header.html';
+
+    fetch(headerPath)
         .then(response => {
-            if(!response.ok) throw new Error("Header not found");
+            if(!response.ok) throw new Error("Header not found at " + headerPath);
             return response.text();
         })
         .then(data => {
@@ -123,41 +134,34 @@ function loadHeader() {
         .catch(error => console.warn('Header fetch skipped or failed:', error));
 }
 
-// --- UPGRADED CART STATE ---
-// We now store an array of objects instead of just a number
-let cartItems = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
-
-function updateCartDisplay() {
-    const cartElement = document.getElementById('cart-count');
-    if (cartElement) {
-        // Calculate total items (accounting for quantities)
-        const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
-        cartElement.innerText = totalItems;
-        
-        // Quick pop animation
-        cartElement.style.transform = 'scale(1.2)';
-        setTimeout(() => cartElement.style.transform = 'scale(1)', 200);
-    }
-}
-
-// Ensure the button passes the product name, and we find the full details from the products array
-window.addToCart = function(productName) {
-    // Find the product data from your products.js file
-    const product = products.find(p => p.name === productName);
-    if (!product) return;
-
-    // Check if it's already in the cart
-    const existingItem = cartItems.find(item => item.id === product.id);
+window.showToast = function(message) {
+    const toast = document.getElementById("toast");
+    if(!toast) return;
     
-    if (existingItem) {
-        existingItem.qty += 1; // Increase quantity
-    } else {
-        cartItems.push({ ...product, qty: 1 }); // Add new item with qty: 1
-    }
-
-    // Save the upgraded array to localStorage
-    localStorage.setItem('luxeCartItems', JSON.stringify(cartItems));
+    toast.style.position = 'fixed';
+    toast.style.bottom = '30px';
+    toast.style.right = '30px';
+    toast.style.background = 'var(--primary-yellow)';
+    toast.style.color = 'var(--dark-bg)';
+    toast.style.fontWeight = '700';
+    toast.style.padding = '16px 24px';
+    toast.style.borderRadius = '8px';
+    toast.style.fontSize = '0.95rem';
+    toast.style.zIndex = '9999';
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(20px)';
+    toast.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
     
-    updateCartDisplay();
-    showToast(`${product.name} added to cart!`);
+    toast.innerText = message;
+    
+    setTimeout(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+    }, 10);
+    
+    setTimeout(() => { 
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+    }, 3000);
 };

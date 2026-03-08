@@ -3,118 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Gifts | Premium Accessories & Gift Boxes</title>
-    <link rel="stylesheet" href="./Pages/Css/styles.css">
+    <title>Luxe Gifts | Store</title>
+    <link rel="stylesheet" href="./Pages/Css/styles.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="editorial-body">
+<body class="hyper-ecommerce-body">
     
     <header id="main-header" class="site-header"></header>
 
-    <main>
-        <section class="split-hero">
-            <div class="hero-text-content">
-                <span class="subheading">The Art of Gifting</span>
-                <h1>Curated Luxury for Every Occasion.</h1>
-                <p>Discover our selection of premium accessories and bespoke gift baskets, designed to leave a lasting impression.</p>
-                <div class="hero-buttons">
-                    <a href="#featured" class="btn-solid">Shop Collection</a>
-                    <a href="builder.html" class="btn-outline">Build a Box</a>
+    <main class="store-layout">
+        <section class="promo-hero">
+            <div class="promo-banner">
+                <div class="promo-text">
+                    <span class="badge">Weekend Offer</span>
+                    <h2>Up to 20% off Premium Fragrances</h2>
+                    <a href="#section-perfumes" class="shop-now-link">Shop Now <i class="fa-solid fa-chevron-right"></i></a>
                 </div>
-            </div>
-            <div class="hero-image-content">
-                <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200" alt="Luxury Gift Box">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47714263f?q=80&w=800" alt="Fragrances Promo">
             </div>
         </section>
 
-        <section class="value-props">
-            <div class="prop-item">
-                <i class="fa-solid fa-truck-fast"></i>
-                <h4>Express Delivery</h4>
-                <p>Next-day shipping available.</p>
-            </div>
-            <div class="prop-item">
-                <i class="fa-solid fa-ribbon"></i>
-                <h4>Premium Packaging</h4>
-                <p>Signature wrapping on all orders.</p>
-            </div>
-            <div class="prop-item">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h4>Secure Checkout</h4>
-                <p>100% encrypted payments.</p>
-            </div>
-        </section>
-
-        <section class="shop-by-category">
-            <div class="section-header">
-                <h2>Shop by Category</h2>
-            </div>
-            <div class="category-grid">
-                <a href="#" class="cat-card">
-                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=600" alt="Watches">
-                    <div class="cat-overlay"><h3>Timepieces</h3></div>
+        <nav class="quick-categories">
+            <div class="qc-track">
+                <a href="#section-watches" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=200" alt="Watches"></div>
+                    <span>Watches</span>
                 </a>
-                <a href="#" class="cat-card">
-                    <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600" alt="Handbags">
-                    <div class="cat-overlay"><h3>Leather Goods</h3></div>
+                <a href="#section-handbags" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=200" alt="Bags"></div>
+                    <span>Bags</span>
                 </a>
-                <a href="#" class="cat-card">
-                    <img src="https://images.unsplash.com/photo-1594035910387-fea47714263f?q=80&w=600" alt="Fragrances">
-                    <div class="cat-overlay"><h3>Fragrances</h3></div>
+                <a href="#section-perfumes" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=200" alt="Perfumes"></div>
+                    <span>Perfumes</span>
+                </a>
+                <a href="Pages/custom-basket.html" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=200" alt="Custom"></div>
+                    <span>Build Box</span>
+                </a>
+                <a href="#section-jewelry" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1599643478514-4a820cbf311e?q=80&w=200" alt="Jewelry"></div>
+                    <span>Jewelry</span>
+                </a>
+                <a href="#section-sunglasses" class="qc-item">
+                    <div class="qc-img"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=200" alt="Sunglasses"></div>
+                    <span>Eyewear</span>
                 </a>
             </div>
+        </nav>
+
+        <section class="mid-banner">
+            <div class="mb-content">
+                <h3>Build a Custom Gift Basket</h3>
+                <p>Select your packaging, items, and a personalized card.</p>
+            </div>
+            <a href="Pages/custom-basket.html" class="mb-btn">Start Building</a>
         </section>
 
-        <div id="storefront" class="editorial-storefront">
+        <div id="storefront" class="dynamic-rows">
             </div>
 
-        <section class="brand-story">
-            <div class="story-image">
-                <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=1000" alt="Luxe Details">
-            </div>
-            <div class="story-text">
-                <span class="subheading">Our Promise</span>
-                <h2>Uncompromising Quality.</h2>
-                <p>We believe that a gift is more than just an object; it is a profound expression of appreciation and love. That is why every item in our collection is meticulously sourced from the finest artisans.</p>
-                <p>From the sourcing of our leather to the final ribbon tied on our signature boxes, every detail is engineered to create a moment of pure delight.</p>
-                <a href="#" class="btn-outline" style="margin-top: 20px;">Read Our Story</a>
-            </div>
-        </section>
-
-        <section class="newsletter-section">
-            <div class="newsletter-content">
-                <h2>Join the Inner Circle</h2>
-                <p>Subscribe to receive exclusive offers, early access to new collections, and 10% off your first custom box.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" required>
-                    <button type="submit" class="btn-solid">Subscribe</button>
-                </form>
-            </div>
-        </section>
     </main>
 
     <div id="toast"></div>
 
     <footer class="site-footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Luxe Gifts</h4>
-                <p>Elevating the art of giving through curated, premium accessories and unforgettable presentation.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Shop</h4>
-                <a href="#">Watches</a>
-                <a href="#">Handbags</a>
-                <a href="#">Perfumes</a>
-            </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <a href="#">Contact Us</a>
-                <a href="#">Shipping Policy</a>
-                <a href="#">Returns</a>
-            </div>
-        </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Luxe Gifts. SSE 2210 Project.</p>
         </div>
