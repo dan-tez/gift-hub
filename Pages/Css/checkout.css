@@ -9,7 +9,7 @@
     --cf-grey-bg: #F5F7FA;
     --cf-border: #EAEAEA;
     --text-muted: #666666;
-    --focus-ring: rgba(255, 204, 0, 0.4); /* Yellow focus ring for inputs */
+    --focus-ring: rgba(255, 204, 0, 0.4);
 }
 
 * {
@@ -25,9 +25,9 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* =========================================
+/* 
    2. CHECKOUT PAGE STYLES
-   ========================================= */
+*/
 .checkout-container {
     max-width: 1200px;
     margin: 40px auto 100px;
@@ -236,9 +236,9 @@ body {
     background: var(--cf-grey-bg);
 }
 
-/* =========================================
+/* 
    3. CHECKOUT ORDER SUMMARY CARD
-   ========================================= */
+*/
 
 /* The Main Summary Card */
 .cart-summary-card {

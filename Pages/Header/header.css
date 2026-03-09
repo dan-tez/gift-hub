@@ -1,13 +1,11 @@
-/* =========================================
-   MODERN E-COMMERCE HEADER
-   ========================================= */
+
 .site-header {
     background-color: var(--dark-bg, #1a1a1a);
     color: var(--text-light, #ffffff);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 5%; /* Slightly slimmer for an app-like feel */
+    padding: 16px 5%; 
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -107,33 +105,33 @@
     color: var(--dark-bg, #1a1a1a);
     font-size: 0.75rem;
     font-weight: 800;
-    min-width: 22px; /* Changed to min-width so it expands if quantity > 9 */
+    min-width: 22px; 
     height: 22px;
     padding: 0 6px; 
-    border-radius: 50px; /* Creates a pill shape for double-digits */
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--dark-bg, #1a1a1a); /* Creates a "cutout" effect against the dark header */
+    border: 2px solid var(--dark-bg, #1a1a1a); 
     transition: transform 0.2s ease;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
     .site-header {
-        flex-wrap: wrap; /* Allows the nav to drop below the logo/cart */
+        flex-wrap: wrap; 
         padding: 16px 20px;
     }
     
     .site-header .nav-actions {
-        order: 2; /* Keeps cart at the top right */
+        order: 2; 
     }
 
     .site-header nav {
-        order: 3; /* Pushes nav to the bottom row */
+        order: 3; 
         width: 100%;
         margin-top: 16px;
-        overflow-x: auto; /* Allows horizontal scrolling of links on small screens */
+        overflow-x: auto; 
         padding-bottom: 8px;
         scrollbar-width: none;
     }
@@ -147,7 +145,7 @@
     }
 
     .site-header nav a {
-        white-space: nowrap; /* Prevents text wrapping */
+        white-space: nowrap; 
         font-size: 0.95rem;
     }
 }
