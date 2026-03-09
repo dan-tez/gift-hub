@@ -4,12 +4,12 @@
 let cartCount = parseInt(localStorage.getItem('luxeCartCount')) || 0;
 let cartItems = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
 
-// Defines the order categories appear on the homepage
 const categoriesList = [
     'Watches', 'Handbags', 'Perfumes', 'Wallets', 'Sunglasses', 
-    'Jewelry', 'Scarves'
+    'Jewelry', 'Tech', 'Home', 'Gourmet', 'Flowers', 
+    'Stationery', 'Wellness', 'Belts', 'Hats', 'Scarves', 
+    'Baby', 'Drinkware', 'Packaging', 'Cards', 'Extras'
 ];
-
 document.addEventListener("DOMContentLoaded", () => {
     loadHeader();
     loadFooter();

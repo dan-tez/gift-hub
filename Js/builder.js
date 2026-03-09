@@ -23,8 +23,7 @@ const giftMessageEl = document.getElementById('gift-message');
 
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof products !== 'undefined' && typeof packagingOptions !== 'undefined' && typeof cardOptions !== 'undefined') {
-        extractAndRenderFilters(); // This now handles rendering the first category automatically
-        // renderProducts(products); <-- DELETE THIS LINE
+        extractAndRenderFilters(); 
         renderOptionsGrid(packagingOptions, 'packaging-grid', 'packaging');
         renderOptionsGrid(cardOptions, 'card-grid', 'card');
     } else {
