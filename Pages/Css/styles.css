@@ -182,7 +182,7 @@ body.hyper-ecommerce-body {
 }
 
 .luxe-price {
-    font-size: 1.25rem; font-weight: 800; color: var(--dark-bg);
+    font-size: 1rem; font-weight: 600; color: var(--dark-bg);
     margin-bottom: 8px; display: flex; flex-direction: column; line-height: 1.1;
 }
 

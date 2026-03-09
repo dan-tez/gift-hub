@@ -4,12 +4,12 @@
 let cartCount = parseInt(localStorage.getItem('luxeCartCount')) || 0;
 let cartItems = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
 
-// Defines the order categories appear on the homepage
 const categoriesList = [
-    'Watches', 'Handbags', 'Perfumes', 'Wallets', 'Sunglasses', 
-    'Jewelry', 'Scarves'
+    'Watches', 'Handbags', 'Perfumes', 'Sunglasses', 
+    'Jewelry', 'Tech', 'Home',  'Flowers', 
+    'Stationery', 'Wellness',
+    'Baby', 'Drinkware', 'Accessories'
 ];
-
 document.addEventListener("DOMContentLoaded", () => {
     loadHeader();
     loadFooter();
@@ -43,9 +43,7 @@ function populateStorefront() {
         
         let productsHTML = '';
         categoryProducts.forEach(product => {
-            // Calculate a fake "old price" (20% higher) to mimic Carrefour discounts
-            const oldPrice = Math.floor(product.price * 1.2);
-
+            
             productsHTML += `
                     <div class="luxe-product-card" id="card-${product.id}">
                         <div class="luxe-img-box">
@@ -53,8 +51,7 @@ function populateStorefront() {
                         </div>
                         <div class="luxe-info">
                             <div class="luxe-price">
-                                <span class="luxe-old-price">${oldPrice}</span>
-                                 ${product.price}
+                                 Ksh ${product.price}
                             </div>
                             <span class="luxe-name">${product.name}</span>
                         </div>
