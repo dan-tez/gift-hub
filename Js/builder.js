@@ -1,6 +1,6 @@
-// ==========================================
+
 // 1. STATE & DOM ELEMENTS
-// ==========================================
+
 let currentStep = 1;
 let basket = [];
 let selectedPackaging = null;
@@ -18,9 +18,9 @@ const checkoutModal = document.getElementById('checkout-modal');
 const giftRecipientEl = document.getElementById('gift-recipient');
 const giftMessageEl = document.getElementById('gift-message');
 
-// ==========================================
+
 // 2. INITIALIZATION
-// ==========================================
+
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof products !== 'undefined' && typeof packagingOptions !== 'undefined' && typeof cardOptions !== 'undefined') {
         extractAndRenderFilters(); // This now handles rendering the first category automatically
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ==========================================
+
 // 3. STEP NAVIGATION LOGIC
-// ==========================================
+
 nextBtn.addEventListener('click', () => {
     if (currentStep === 1) {
         goToStep(2);
@@ -84,9 +84,9 @@ function goToStep(stepNumber) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ==========================================
+
 // 4. RENDERING GRIDS
-// ==========================================
+
 function extractAndRenderFilters() {
     // 1. Remove 'All' - just grab the unique categories directly
     const categories = [...new Set(products.map(p => p.category))];
@@ -167,9 +167,9 @@ function renderOptionsGrid(optionsArray, containerId, type) {
     });
 }
 
-// ==========================================
+
 // 5. BASKET LOGIC
-// ==========================================
+
 window.addToBasket = function(productId) {
     const product = products.find(p => p.id === productId);
     if(basket.find(item => item.id === productId)) { showToast("Item already in box!"); return; }
@@ -241,9 +241,9 @@ function updateBasketUI() {
     }
 }
 
-// ==========================================
+
 // 6. CATEGORIZED MODAL & CHECKOUT
-// ==========================================
+
 function openReviewModal() {
     const total = basket.reduce((sum, item) => sum + item.price, 0) + (selectedPackaging?.price || 0) + (selectedCard?.price || 0);
     const modalItemsList = document.getElementById('modal-items-list');
@@ -316,9 +316,9 @@ function openReviewModal() {
 document.getElementById('close-modal').addEventListener('click', () => checkoutModal.classList.remove('active'));
 checkoutModal.addEventListener('click', (e) => { if (e.target === checkoutModal) checkoutModal.classList.remove('active'); });
 
-/// ==========================================
+
 // 6. ROUTE TO GLOBAL CHECKOUT
-// ==========================================
+
 const payBtn = document.getElementById('pay-btn');
 if(payBtn) {
     payBtn.addEventListener('click', () => {
@@ -360,9 +360,9 @@ if(payBtn) {
 }
 
 
-// ==========================================
+
 // 7. TOAST UTILITY
-// ==========================================
+
 function showToast(message) {
     const toast = document.getElementById("toast");
     if(!toast) return;

@@ -40,14 +40,13 @@ body {
     background-image: 
         linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
         linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-    /* Fades the grid out towards the bottom */
     mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
 }
 
-/* =========================================
+/*
    2. HEADER
-   ========================================= */
+*/
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -92,9 +91,9 @@ body {
     font-weight: 600;
 }
 
-/* =========================================
+/*
    3. HERO SECTION
-   ========================================= */
+*/
 .page-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -120,17 +119,17 @@ body {
     margin: 0 auto;
 }
 
-/* =========================================
+/*
    4. CONTENT WRAPPER (Form + Info)
-   ========================================= */
+*/
 .contact-wrapper {
     display: flex;
     gap: 60px;
 }
 
-/* =========================================
+/*
    5. FORM AREA
-   ========================================= */
+*/
 .form-area {
     flex: 1.2;
 }
@@ -265,9 +264,9 @@ body {
     background-color: #344054;
 }
 
-/* =========================================
+/*
    6. INFO AREA (Right Side)
-   ========================================= */
+*/
 .info-area {
     flex: 0.8;
     display: flex;
@@ -316,9 +315,9 @@ body {
     font-size: 1.1rem;
 }
 
-/* =========================================
+/*
    7. RESPONSIVENESS
-   ========================================= */
+   */
 @media (max-width: 900px) {
     .contact-wrapper {
         flex-direction: column;
@@ -334,6 +333,6 @@ body {
     }
 
     .nav-links {
-        display: none; /* Hide standard nav on mobile */
+        display: none;
     }
 }

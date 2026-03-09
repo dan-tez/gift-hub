@@ -1,9 +1,9 @@
 @import url("../Header/header.css");
 @import url("../Footer/footer.css");
 
-/* =========================================
-   1. GLOBAL VARIABLES & RESET (Independent)
-   ========================================= */
+/* 
+   1. GLOBAL VARIABLES & RESET 
+*/
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
 
 :root {
@@ -18,14 +18,14 @@
     box-sizing: border-box;
 }
 
-/* =========================================
+/* 
    2. GALLERY STYLES (Preserved Original)
-   ========================================= */
+*/
 body {
     margin: 0;
-    font-family: 'Jost', sans-serif; /* Updated to brand font */
+    font-family: 'Jost', sans-serif; 
     background-color: #111;
-    color: var(--primary-yellow); /* Using brand yellow instead of generic gold */
+    color: var(--primary-yellow);
     text-align: center;
 }
 
@@ -56,9 +56,9 @@ h1 {
     opacity: 0.8;
 }
 
-/* =========================================
+/* 
    3. RESPONSIVE
-   ========================================= */
+    */
 @media (max-width: 600px) {
     .gallery {
         grid-template-columns: 1fr;

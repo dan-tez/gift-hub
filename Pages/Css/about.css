@@ -20,14 +20,14 @@
 body {
     background-color: var(--cf-grey-bg);
     color: var(--dark-bg);
-    font-family: 'Jost', sans-serif; /* Modernized from Georgia */
+    font-family: 'Jost', sans-serif; 
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
-/* =========================================
+/* 
    2. ABOUT SECTION STYLES
-   ========================================= */
+*/
 .container {
     max-width: 1000px;
     margin: 60px auto;
@@ -48,12 +48,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* =========================================
+/* 
    3. DIRECTORS GRID SECTION
-   ========================================= */
+*/
 .directors {
     padding: 80px 5%;
-    background: #ffffff; /* Clean white contrast to the grey body */
+    background: #ffffff; 
     text-align: center;
     border-top: 1px solid var(--cf-border);
 }
@@ -114,21 +114,6 @@ body {
     color: var(--dark-bg);
 }
 
-/* =========================================
-   4. FOOTER STYLES
-   ========================================= */
-footer {
-    background: var(--dark-bg);
-    color: var(--text-light);
-    text-align: center;
-    padding: 40px 20px;
-}
-
-footer p {
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    font-size: 0.9rem;
-}
 
 /* Responsive adjustment */
 @media (max-width: 600px) {
