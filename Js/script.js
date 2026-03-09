@@ -43,9 +43,7 @@ function populateStorefront() {
         
         let productsHTML = '';
         categoryProducts.forEach(product => {
-            // Calculate a fake "old price" (20% higher) to mimic Carrefour discounts
-            const oldPrice = Math.floor(product.price * 1.2);
-
+            
             productsHTML += `
                     <div class="luxe-product-card" id="card-${product.id}">
                         <div class="luxe-img-box">
@@ -53,7 +51,6 @@ function populateStorefront() {
                         </div>
                         <div class="luxe-info">
                             <div class="luxe-price">
-                                <span class="luxe-old-price">Ksh ${oldPrice}</span>
                                  Ksh ${product.price}
                             </div>
                             <span class="luxe-name">${product.name}</span>
