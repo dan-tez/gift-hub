@@ -30,8 +30,7 @@ body.hyper-ecommerce-body {
     padding: 20px 5% 100px;
 }
 
-/* 2. PROMOTIONAL HERO BANNER 
-   -------------------------------------------------------------------------- */
+/* 2. PROMOTIONAL HERO BANNER  */
 .promo-hero { margin-bottom: 24px; }
 
 .promo-banner {
@@ -77,8 +76,7 @@ body.hyper-ecommerce-body {
     -webkit-mask-image: linear-gradient(to right, transparent, black 25%);
 }
 
-/* 3. QUICK NAVIGATION (CIRCULAR CATEGORIES) 
-   -------------------------------------------------------------------------- */
+/* 3. QUICK NAVIGATION (CIRCULAR CATEGORIES)  */
 .quick-categories {
     background: #fff;
     border-radius: 12px;
@@ -114,8 +112,7 @@ body.hyper-ecommerce-body {
 
 .qc-item span { font-size: 0.9rem; font-weight: 600; text-align: center; }
 
-/* 4. MID-PAGE CALL TO ACTION BANNER 
-   -------------------------------------------------------------------------- */
+/* 4. MID-PAGE CALL TO ACTION BANNER  */
 .mid-banner {
     background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
     border: 1px solid var(--border-soft);
@@ -134,8 +131,7 @@ body.hyper-ecommerce-body {
     font-weight: 700; transition: opacity 0.2s;
 }
 
-/* 5. DYNAMIC PRODUCT GRID (THE LUXE SYSTEM) 
-   -------------------------------------------------------------------------- */
+/* 5. DYNAMIC PRODUCT GRID (THE LUXE SYSTEM)  */
 .dynamic-rows { display: flex; flex-direction: column; gap: 24px; }
 
 /* White container block for each category section */
@@ -220,8 +216,7 @@ body.hyper-ecommerce-body {
 }
 .app-scroll-track::-webkit-scrollbar { display: none; }
 
-/* 6. RESPONSIVE BREAKPOINTS 
-   -------------------------------------------------------------------------- */
+/* 6. RESPONSIVE BREAKPOINTS  */
 @media (max-width: 768px) {
     .promo-banner { flex-direction: column; height: auto; text-align: center; }
     .promo-banner img { width: 100%; height: 150px; mask-image: none; -webkit-mask-image: none; }

@@ -17,9 +17,9 @@
 
 .bg-grid { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-size: 80px 80px; background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px); mask-image: linear-gradient(to bottom, black 20%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%); }
 
-/* =========================================
+/* 
    2. HEADER & LAYOUT
-   ========================================= */
+*/
 .main-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; max-width: 1400px; margin: 0 auto; }
 .logo { font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
 .header-steps { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); }
@@ -30,9 +30,9 @@
 
 .builder-layout { max-width: 1400px; margin: 0 auto; padding: 20px 5%; display: flex; gap: 60px; align-items: flex-start; }
 
-/* =========================================
+/* 
    3. MULTI-STEP WIZARD (LEFT)
-   ========================================= */
+*/
 .steps-container { flex: 1; position: relative; padding-bottom: 100px; }
 .step-section { display: none; animation: fadeInSlideUp 0.4s ease forwards; }
 .step-section.active { display: block; }
@@ -77,9 +77,9 @@
 .message-input { width: 100%; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: 12px; font-size: 1rem; font-family: inherit; outline: none; transition: border-color 0.2s, box-shadow 0.2s; resize: vertical; }
 .message-input:focus { border-color: var(--text-primary); box-shadow: 0 0 0 4px rgba(16, 24, 40, 0.05); }
 
-/* =========================================
+/* 
    4. STICKY BASKET (RIGHT)
-   ========================================= */
+*/
 .basket-sidebar { width: 380px; position: sticky; top: 40px; }
 .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 24px 48px -12px rgba(16, 24, 40, 0.08); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; height: calc(100vh - 80px); max-height: 700px; }
 .basket-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color); }
@@ -104,9 +104,9 @@
 .back-btn { background: transparent; border: none; color: var(--text-secondary); width: 100%; padding: 12px; margin-top: 8px; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: color 0.2s; }
 .back-btn:hover { color: var(--text-primary); }
 
-/* =========================================
+/* 
    5. MODAL & TOAST
-   ========================================= */
+*/
 .checkout-modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(16, 24, 40, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .checkout-modal-overlay.active { opacity: 1; pointer-events: auto; }
 .checkout-modal-card { background: #ffffff; width: 90%; max-width: 480px; border-radius: 24px; box-shadow: 0 24px 48px -12px rgba(16, 24, 40, 0.25); transform: translateY(20px) scale(0.98); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; max-height: 85vh; }

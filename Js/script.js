@@ -1,6 +1,6 @@
-// ==========================================
+
 // 1. STATE & INITIALIZATION
-// ==========================================
+
 let cartCount = parseInt(localStorage.getItem('luxeCartCount')) || 0;
 let cartItems = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
 
@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ==========================================
+
 // 2. DYNAMIC STOREFRONT (Carrefour Architecture)
-// ==========================================
+
 function populateStorefront() {
     const storefrontContainer = document.getElementById('storefront');
     if (!storefrontContainer) return;
@@ -80,9 +80,9 @@ function populateStorefront() {
     });
 }
 
-// ==========================================
+
 // 3. CART LOGIC
-// ==========================================
+
 function updateCartDisplay() {
     const cartElement = document.getElementById('cart-count');
     if (cartElement) {
@@ -112,9 +112,9 @@ window.addToCart = function(productName) {
     showToast(`${product.name} added to cart!`);
 };
 
-// ==========================================
+
 // 4. UTILITIES (Header & Toast)
-// ==========================================
+
 function loadHeader() {
     // Allows the header to load properly if you are in the root folder or the Pages folder
     const inSubfolder = window.location.pathname.includes('/Pages/');
