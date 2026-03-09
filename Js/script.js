@@ -5,10 +5,10 @@ let cartCount = parseInt(localStorage.getItem('luxeCartCount')) || 0;
 let cartItems = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
 
 const categoriesList = [
-    'Watches', 'Handbags', 'Perfumes', 'Wallets', 'Sunglasses', 
-    'Jewelry', 'Tech', 'Home', 'Gourmet', 'Flowers', 
-    'Stationery', 'Wellness', 'Belts', 'Hats', 'Scarves', 
-    'Baby', 'Drinkware', 'Packaging', 'Cards', 'Extras'
+    'Watches', 'Handbags', 'Perfumes', 'Sunglasses', 
+    'Jewelry', 'Tech', 'Home',  'Flowers', 
+    'Stationery', 'Wellness',
+    'Baby', 'Drinkware', 'Accessories'
 ];
 document.addEventListener("DOMContentLoaded", () => {
     loadHeader();
@@ -53,8 +53,8 @@ function populateStorefront() {
                         </div>
                         <div class="luxe-info">
                             <div class="luxe-price">
-                                <span class="luxe-old-price">${oldPrice}</span>
-                                 ${product.price}
+                                <span class="luxe-old-price">Ksh ${oldPrice}</span>
+                                 Ksh ${product.price}
                             </div>
                             <span class="luxe-name">${product.name}</span>
                         </div>

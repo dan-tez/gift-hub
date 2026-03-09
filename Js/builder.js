@@ -132,7 +132,7 @@ function renderProducts(items) {
                 <span class="p-category">${product.category}</span>
                 <h3 class="p-name">${product.name}</h3>
                 <div class="p-bottom">
-                    <span class="p-price"> ${product.price.toLocaleString()}</span>
+                    <span class="p-price"> Ksh ${product.price.toLocaleString()}</span>
                     <button class="add-btn" onclick="addToBasket(${product.id})"><i class="fa-solid fa-plus"></i></button>
                 </div>
             </div>
@@ -152,7 +152,7 @@ function renderOptionsGrid(optionsArray, containerId, type) {
         card.innerHTML = `
             <img src="${option.image}" alt="${option.name}">
             <span class="selection-title">${option.name}</span>
-            <span class="selection-price"> ${option.price}</span>
+            <span class="selection-price"> Ksh ${option.price}</span>
         `;
         
         card.onclick = () => {
@@ -208,7 +208,7 @@ function updateBasketUI() {
                 <img src="${item.image}">
                 <div class="cart-item-details">
                     <span class="cart-item-title">${item.name}</span>
-                    <span class="cart-item-price"> ${item.price.toLocaleString()}</span>
+                    <span class="cart-item-price">Ksh ${item.price.toLocaleString()}</span>
                 </div>
                 <button class="remove-btn" onclick="removeFromBasket(${item.id})"><i class="fa-solid fa-trash-can"></i></button>
             </div>
@@ -221,7 +221,7 @@ function updateBasketUI() {
                 <img src="${selectedPackaging.image}">
                 <div class="cart-item-details">
                     <span class="cart-item-title">Box: ${selectedPackaging.name}</span>
-                    <span class="cart-item-price"> ${selectedPackaging.price}</span>
+                    <span class="cart-item-price"> Ksh ${selectedPackaging.price}</span>
                 </div>
             </div>
         `;
@@ -233,7 +233,7 @@ function updateBasketUI() {
                 <img src="${selectedCard.image}">
                 <div class="cart-item-details">
                     <span class="cart-item-title">Card: ${selectedCard.name}</span>
-                    <span class="cart-item-price"> ${selectedCard.price}</span>
+                    <span class="cart-item-price">Ksh ${selectedCard.price}</span>
                 </div>
             </div>
         `;
@@ -257,7 +257,7 @@ function openReviewModal() {
                     <img src="${item.image}">
                     <div class="r-details">
                         <span class="r-name">${item.name}</span>
-                        <span class="r-price"> ${item.price.toLocaleString()}</span>
+                        <span class="r-price">Ksh ${item.price.toLocaleString()}</span>
                     </div>
                 </div>
             `;
@@ -272,7 +272,7 @@ function openReviewModal() {
                 <img src="${selectedPackaging.image}">
                 <div class="r-details">
                     <span class="r-name">${selectedPackaging.name}</span>
-                    <span class="r-price"> ${selectedPackaging.price}</span>
+                    <span class="r-price">ksh ${selectedPackaging.price}</span>
                 </div>
             </div>
         `;
@@ -286,7 +286,7 @@ function openReviewModal() {
                 <img src="${selectedCard.image}">
                 <div class="r-details">
                     <span class="r-name">${selectedCard.name}</span>
-                    <span class="r-price"> ${selectedCard.price}</span>
+                    <span class="r-price">Ksh ${selectedCard.price}</span>
                 </div>
             </div>
         `;
