@@ -53,7 +53,7 @@ function populateStorefront() {
                         </div>
                         <div class="luxe-info">
                             <div class="luxe-price">
-                                <span class="luxe-old-price">AED ${oldPrice}</span>
+                                <span class="luxe-old-price">${oldPrice}</span>
                                  ${product.price}
                             </div>
                             <span class="luxe-name">${product.name}</span>
