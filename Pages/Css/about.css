@@ -1,70 +1,181 @@
-@import url("../Header/header.css");
-@import url("../Footer/footer.css");
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
-
-:root {
-    --dark-bg: #1a1a1a;
-    --text-light: #ffffff;
-    --primary-yellow: #ffcc00;
-    --cf-grey-bg: #F5F7FA;
-    --cf-border: #EAEAEA;
-    --text-muted: #666666;
+body{
+font-family: Arial, Helvetica, sans-serif;
+margin:0;
+background:#0b0b0b;
+color:#fff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* HERO */
+
+.about-hero{
+height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#111;
+border-bottom:1px solid #c9a44c;
 }
 
-body {
-    background-color: var(--cf-grey-bg);
-    color: var(--dark-bg);
-    font-family: 'Jost', sans-serif; 
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+.hero-overlay h1{
+font-size:48px;
+color:#c9a44c;
 }
 
-/* 
-   2. ABOUT SECTION STYLES
-*/
-.container {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 0 5%;
+.hero-overlay p{
+text-align:center;
+color:#bbb;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
+
+
+/* COMPANY ABOUT */
+
+.company-about{
+padding:80px 10%;
 }
 
-.container p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 20px;
+.about-container{
+display:flex;
+gap:60px;
+align-items:center;
 }
 
-/* 
-   3. DIRECTORS GRID SECTION
-*/
-.directors {
-    padding: 80px 5%;
-    background: #ffffff; 
-    text-align: center;
-    border-top: 1px solid var(--cf-border);
+.about-left{
+flex:1;
 }
 
-.directors h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 40px;
+.image-placeholder{
+height:300px;
+background:#151515;
+border-radius:10px;
+border:1px solid #c9a44c;
 }
 
+.about-right{
+flex:1;
+}
+
+.about-right h4{
+color:#c9a44c;
+letter-spacing:1px;
+}
+
+.about-right h2{
+font-size:36px;
+margin:15px 0;
+}
+
+.about-right span{
+color:#c9a44c;
+}
+
+.about-features{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin:20px 0;
+}
+
+.feature{
+color:#ccc;
+}
+
+
+/* BUTTON */
+
+.gold-btn{
+background:#c9a44c;
+border:none;
+padding:12px 30px;
+cursor:pointer;
+font-weight:bold;
+}
+
+
+
+/* STATS */
+
+.stats{
+background:#111;
+padding:50px 10%;
+}
+
+.stats-container{
+display:flex;
+justify-content:space-between;
+text-align:center;
+}
+
+.stat h2{
+color:#c9a44c;
+font-size:36px;
+}
+
+
+
+/* MISSION */
+
+.mission{
+padding:80px 10%;
+}
+
+.mission-container{
+display:flex;
+gap:60px;
+align-items:center;
+}
+
+.mission-text{
+flex:1;
+}
+
+.mission-text span{
+color:#c9a44c;
+}
+
+.mission-image{
+flex:1;
+height:300px;
+border:1px solid #c9a44c;
+border-radius:10px;
+background:#151515;
+}
+
+
+
+/* TESTIMONIALS */
+
+.testimonials{
+padding:80px 10%;
+text-align:center;
+}
+
+.testimonials h2{
+color:#c9a44c;
+margin-bottom:40px;
+}
+
+.testimonial-container{
+display:flex;
+gap:30px;
+}
+
+.testimonial-card{
+background:#111;
+padding:30px;
+border-radius:10px;
+border:1px solid #222;
+}
+
+.testimonial-card p{
+color:#bbb;
+}
+
+.testimonial-card h4{
+margin-top:15px;
+color:#c9a44c;
+}
 .director-grid-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -76,13 +187,13 @@ body {
 
 .director-card {
     background: var(--cf-grey-bg);
-    border: 1px solid var(--cf-border);
+    border: 1px solid var(--cf-border) goldenrod;
+    border-color: goldenrod;
     border-radius: 12px;
     padding: 30px;
     min-width: 250px;
     transition: all 0.3s ease;
 }
-
 .director-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary-yellow);
@@ -99,7 +210,7 @@ body {
 .director-card a {
     display: inline-block;
     text-decoration: none;
-    background: var(--dark-bg);
+    background: goldenrod;
     color: var(--primary-yellow);
     padding: 10px 20px;
     border-radius: 50px;
@@ -112,11 +223,4 @@ body {
 .director-card a:hover {
     background: var(--primary-yellow);
     color: var(--dark-bg);
-}
-
-
-/* Responsive adjustment */
-@media (max-width: 600px) {
-    .section-title { font-size: 2rem; }
-    .director-card { width: 100%; }
 }
