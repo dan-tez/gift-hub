@@ -1,66 +1,122 @@
 @import url("../Header/header.css");
 @import url("../Footer/footer.css");
 
-/* 
-   1. GLOBAL VARIABLES & RESET 
-*/
+/*
+   1. GLOBAL & THEME SETUP
+   */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --dark-bg: #1a1a1a;
-    --text-light: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
     --primary-yellow: #ffcc00;
+    --bg-light: #F5F7FA;
+    --white: #ffffff;
+    --dark-bg: #111111;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
 }
 
-/* 
-   2. GALLERY STYLES (Preserved Original)
-*/
 body {
-    margin: 0;
-    font-family: 'Jost', sans-serif; 
-    background-color: #111;
-    color: var(--primary-yellow);
-    text-align: center;
+    background-color: var(--white);
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
-h1 {
-    padding: 20px;
+/*
+   2. GALLERY HEADER
+   */
+.products-section {
+    padding: 80px 5% 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.products-section h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.products-section p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
+/*
+   3. CATEGORY ROWS (GALLERY)
+   */
 .gallery {
+    margin-bottom: 60px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    padding: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    position: relative;
+    padding-top: 50px; /* Space for the label */
 }
 
+/* Category Label Styling */
+.gallery label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    border-left: 5px solid var(--primary-yellow);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+/* Image Presentation */
 .gallery img {
     width: 100%;
-    height: 250px;
+    height: 400px; /* Uniform height for a professional look */
     object-fit: cover;
-    border-radius: 10px;
-    transition: 0.4s;
-    border: 1px solid #333;
+    border-radius: 15px;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: brightness(0.9);
 }
 
+/* Premium Hover Effect */
 .gallery img:hover {
-    transform: scale(1.05);
-    opacity: 0.8;
+    transform: scale(1.03);
+    filter: brightness(1.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border: 2px solid var(--primary-yellow);
 }
 
-/* 
-   3. RESPONSIVE
-    */
+/*
+   4. RESPONSIVE ADJUSTMENTS
+   */
+@media (max-width: 1024px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+    .gallery img {
+        height: 300px;
+    }
+}
+
 @media (max-width: 600px) {
     .gallery {
         grid-template-columns: 1fr;
+    }
+    .products-section h2 {
+        font-size: 2.2rem;
+    }
+    .gallery label {
+        font-size: 1.2rem;
     }
 }
