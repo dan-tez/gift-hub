@@ -1,26 +1,26 @@
 const products = [
-    // 1-5: WATCHES
-    { id: 1, name: "Men's Chronograph", price: 25000, category: "Watches", image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=400" },
-    { id: 2, name: "Rose Gold Minimalist", price: 32000, category: "Watches", image: "https://images.unsplash.com/photo-1585123334904-845d60e97b29?q=80&w=400" },
-    { id: 3, name: "Sport Digital Watch", price: 15000, category: "Watches", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400" },
-    { id: 4, name: "Luxury Diamond Bezel", price: 85000, category: "Watches", image: "https://images.unsplash.com/photo-1548171915-e79a380a2a4b?q=80&w=400" },
-    { id: 5, name: "Vintage Leather Strap", price: 21000, category: "Watches", image: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?q=80&w=400" },
+    //WATCHES
+    { id: 1, name: "Omega Seamaster", price: 25000, category: "Watches", image: "Images/Products/Omega_Seamaster_1.jpg" },
+    { id: 2, name: "Rose Gold Minimalist", price: 32000, category: "Watches", image: "Images/Products/Rose Gold Minimalist.jpeg" },
+    { id: 3, name: "Sport Digital Watch", price: 15000, category: "Watches", image: "Images/Products/Sport_Digital_Watch.jpg" },
+    { id: 4, name: "Analog Watch", price: 85000, category: "Watches", image: "Images/Products/Analog Watch.jpeg" },
+    { id: 5, name: "Vintage With Leather Strap", price: 21000, category: "Watches", image: "Images/Products/Vintage With Leather Strap.jpeg" },
 
-    // 6-10: HANDBAGS
-    { id: 6, name: "Designer Leather Tote", price: 45000, category: "Handbags", image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=400" },
-    { id: 7, name: "Chic Evening Clutch", price: 18000, category: "Handbags", image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?q=80&w=400" },
-    { id: 8, name: "Everyday Crossbody", price: 22000, category: "Handbags", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=400" },
-    { id: 9, name: "Woven Summer Satchel", price: 28000, category: "Handbags", image: "https://images.unsplash.com/photo-1614179689702-355944cd0918?q=80&w=400" },
-    { id: 10, name: "Monogram Hobo Bag", price: 60000, category: "Handbags", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=400" },
+    //HANDBAGS
+    { id: 6, name: "Designer Leather Tote", price: 45000, category: "Handbags", image: "Images/Products/totebag.webp" },
+    { id: 7, name: "Chic Evening Clutch", price: 18000, category: "Handbags", image: "Images/Products/Chic Evening Clutch.jpeg" },
+    { id: 8, name: "Everyday Crossbody", price: 22000, category: "Handbags", image: "Images/Products/Everyday Crossbody.jpeg" },
+    { id: 9, name: "Woven Summer Satchel", price: 28000, category: "Handbags", image: "Images/Products/Woven Summer Satchel.jpeg" },
+    { id: 10, name: "Hobo Bag", price: 60000, category: "Handbags", image: "Images/Products/hobo bag.webp" },
 
-    // 11-15: PERFUMES
-    { id: 11, name: "Signature Eau de Parfum", price: 15000, category: "Perfumes", image: "https://images.unsplash.com/photo-1594035910387-fea47714263f?q=80&w=400" },
-    { id: 12, name: "Ocean Breeze Cologne", price: 12500, category: "Perfumes", image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=400" },
-    { id: 13, name: "Midnight Rose Floral", price: 14200, category: "Perfumes", image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=400" },
-    { id: 14, name: "Wood & Spice Musk", price: 18000, category: "Perfumes", image: "https://images.unsplash.com/photo-1615486171448-4e899cb48197?q=80&w=400" },
-    { id: 15, name: "Citrus Bloom Mist", price: 8500, category: "Perfumes", image: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?q=80&w=400" },
+    //PERFUMES
+    { id: 11, name: "Signature Eau de Parfum", price: 15000, category: "Perfumes", image: "Images/Products/Signature Eau de Parfum.webp" },
+    { id: 12, name: "Azha Ocean Breeze Cologne", price: 12500, category: "Perfumes", image: "Images/Products/Ocean Breeze Cologne.webp" },
+    { id: 13, name: "Midnight Rose Floral", price: 14200, category: "Perfumes", image: "Images/Products/Midnight Rose Floral.jpeg" },
+    { id: 14, name: "Wood & Spice Musk", price: 18000, category: "Perfumes", image: "Images/Products/Wood & Spice Musk.webp" },
+    { id: 15, name: "Citrus Bloom Mist", price: 8500, category: "Perfumes", image: "Images/Products/Citrus Bloom Mist.webp" },
 
-    // 16-30: ACCESSORIES 
+    //ACCESSORIES 
     { id: 16, name: "Slim Leather Bifold", price: 5500, category: "Accessories", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=400" },
     { id: 17, name: "Women's Zip-Around", price: 7800, category: "Accessories", image: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=400" },
     { id: 18, name: "Minimalist Cardholder", price: 3200, category: "Accessories", image: "https://images.unsplash.com/photo-1534062597401-4ec4c4ad0cd0?q=80&w=400" },
@@ -37,80 +37,80 @@ const products = [
     { id: 29, name: "Cashmere Wrap", price: 28000, category: "Accessories", image: "https://images.unsplash.com/photo-1520903073663-8f0a0bbbfcc7?q=80&w=400" },
     { id: 30, name: "Winter Wool Scarf", price: 8200, category: "Accessories", image: "https://images.unsplash.com/photo-1584988358434-297eb04dc66d?q=80&w=400" },
 
-    // 31-35: JEWELRY
-    { id: 31, name: "18k Gold Chain", price: 75000, category: "Jewelry", image: "https://images.unsplash.com/photo-1599643478514-4a820cbf311e?q=80&w=400" },
-    { id: 32, name: "Silver Tennis Bracelet", price: 32000, category: "Jewelry", image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=400" },
-    { id: 33, name: "Pearl Earrings", price: 18500, category: "Jewelry", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400" },
-    { id: 34, name: "Diamond Solitaire Ring", price: 150000, category: "Jewelry", image: "https://images.unsplash.com/photo-1605100804763-247f66126e28?q=80&w=400" },
-    { id: 35, name: "Crystal Pendant", price: 12800, category: "Jewelry", image: "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=400" },
+    // JEWELRY
+    { id: 31, name: "18k Gold Chain", price: 75000, category: "Jewelry", image: "Images/Products/18k Gold Chain.webp" },
+    { id: 32, name: "Silver Tennis Bracelet", price: 32000, category: "Jewelry", image: "Images/Products/Silver Tennis Bracelet.jpeg" },
+    { id: 33, name: "Pearl Earrings", price: 18500, category: "Jewelry", image: "Images/Products/pearl earings.jpeg" },
+    { id: 34, name: "Diamond Solitaire Ring", price: 150000, category: "Jewelry", image: "Images/Products/Diamond Solitaire Ring.webp" },
+    { id: 35, name: "Crystal Pendant", price: 12800, category: "Jewelry", image: "Images/Products/Crystal Pendant.webp" },
 
-    // 36-40: TECH
-    { id: 36, name: "Wireless Headphones", price: 35000, category: "Tech", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=400" },
-    { id: 37, name: "Leather Charging Pad", price: 12000, category: "Tech", image: "https://images.unsplash.com/photo-1616438662555-604399e53a2c?q=80&w=400" },
-    { id: 38, name: "Bluetooth Speaker", price: 28000, category: "Tech", image: "https://images.unsplash.com/photo-1589003077984-894e133dabab?q=80&w=400" },
-    { id: 39, name: "Smart Reusable Notebook", price: 8500, category: "Tech", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=400" },
-    { id: 40, name: "Aluminum Tablet Stand", price: 5200, category: "Tech", image: "https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?q=80&w=400" },
+    //TECH
+    { id: 36, name: "Wireless Headphones", price: 35000, category: "Tech", image: "Images/Products/Wireless Headphones.jpeg" },
+    { id: 37, name: "Leather Charging Pad", price: 12000, category: "Tech", image: "Images/Products/Leather Charging Pad.webp" },
+    { id: 38, name: "Bluetooth Speaker", price: 28000, category: "Tech", image: "Images/Products/Bluetooth Speaker.jpeg" },
+    { id: 39, name: "Smart Reusable Notebook", price: 8500, category: "Tech", image: "Images/Products/Smart Reusable Notebook.webp" },
+    { id: 40, name: "Wireless keyboard and mouse", price: 5200, category: "Tech", image: "Images/Products/keyboard and mouse.webp" },
 
-    // 41-45: HOME
-    { id: 41, name: "Scented Soy Candle", price: 4500, category: "Home", image: "https://images.unsplash.com/photo-1603006375271-7f3b904bb167?q=80&w=400" },
-    { id: 42, name: "Silk Velvet Pillow", price: 7200, category: "Home", image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?q=80&w=400" },
-    { id: 43, name: "Marble Coaster Set", price: 5500, category: "Home", image: "https://images.unsplash.com/photo-1612459284970-e8f027596582?q=80&w=400" },
-    { id: 44, name: "Minimalist Ceramic Vase", price: 8800, category: "Home", image: "https://images.unsplash.com/photo-1581783898377-1c85bf937427?q=80&w=400" },
-    { id: 45, name: "Woven Throw Blanket", price: 12500, category: "Home", image: "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?q=80&w=400" },
+    //HOME
+    { id: 41, name: "Scented Soy Candle", price: 4500, category: "Home", image: "Images/Products/Scented Soy Candle.webp" },
+    { id: 42, name: "Silk Velvet Pillow", price: 7200, category: "Home", image: "Images/Products/Silk Velvet Pillow.webp" },
+    { id: 43, name: "Marble Coaster Set", price: 5500, category: "Home", image: "Images/Products/Marble Coaster Set.webp" },
+    { id: 44, name: "Ceramic Vase", price: 8800, category: "Home", image: "Images/Products/Ceramic Vase.webp" },
+    { id: 45, name: "Woven Throw Blanket", price: 12500, category: "Home", image: "Images/Products/Woven Throw Blanket.webp" },
 
-    // 46-50: FLOWERS
-    { id: 46, name: "Infinity Rose Box", price: 15000, category: "Flowers", image: "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=400" },
-    { id: 47, name: "Orchid Arrangement", price: 9500, category: "Flowers", image: "https://images.unsplash.com/photo-1567331711402-509c14bc606c?q=80&w=400" },
-    { id: 48, name: "Tulip Bouquet", price: 6800, category: "Flowers", image: "https://images.unsplash.com/photo-1520188129113-6490333240e5?q=80&w=400" },
-    { id: 49, name: "Mixed Peony Vase", price: 11000, category: "Flowers", image: "https://images.unsplash.com/photo-1563241527-3004b7be0fab?q=80&w=400" },
-    { id: 50, name: "Sunflower Bundle", price: 4200, category: "Flowers", image: "https://images.unsplash.com/photo-1470509037663-253afd7f0f51?q=80&w=400" },
+    //FLOWERS
+    { id: 46, name: "Infinity Rose Box", price: 15000, category: "Flowers", image: "Images/Products/Infinity Rose Box.webp" },
+    { id: 47, name: "Orchid Arrangement", price: 9500, category: "Flowers", image: "Images/Products/Orchid Arrangement.webp" },
+    { id: 48, name: "Tulip Bouquet", price: 6800, category: "Flowers", image: "Images/Products/Tulip Bouquet.webp" },
+    { id: 49, name: "Mixed Peony Vase", price: 11000, category: "Flowers", image: "Images/Products/Mixed Peony Vase.webp" },
+    { id: 50, name: "Sunflower Bundle", price: 4200, category: "Flowers", image: "Images/Products/Sunflower Bundle.webp" },
 
-    // 51-55: STATIONERY
-    { id: 51, name: "Fountain Pen Set", price: 18500, category: "Stationery", image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=400" },
-    { id: 52, name: "Hardcover Journal", price: 3500, category: "Stationery", image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=400" },
-    { id: 53, name: "Leather Desk Mat", price: 7200, category: "Stationery", image: "https://images.unsplash.com/photo-1593642634367-d91a135567b5?q=80&w=400" },
-    { id: 54, name: "Personalized Wax Seal", price: 4800, category: "Stationery", image: "https://images.unsplash.com/photo-1603730628141-d85559894299?q=80&w=400" },
-    { id: 55, name: "Brass Paperweight", price: 2900, category: "Stationery", image: "https://images.unsplash.com/photo-1588663806001-c3098f98c6ba?q=80&w=400" },
+    // STATIONERY
+    { id: 51, name: "Fountain Pen Set", price: 18500, category: "Stationery", image: "Images/Products/Fountain Pen Set.webp" },
+    { id: 52, name: "Hardcover Journal", price: 3500, category: "Stationery", image: "Images/Products/Hardcover Journal.webp" },
+    { id: 53, name: "Leather Desk Mat", price: 7200, category: "Stationery", image: "Images/Products/Leather Desk Mat.webp" },
+    { id: 54, name: "Personalized Wax Seal", price: 4800, category: "Stationery", image: "Images/Products/Personalized Wax Seal.webp" },
+    { id: 55, name: "Brass Paperweight", price: 2900, category: "Stationery", image: "Images/Products/Brass Paperweight.webp" },
 
-    // 56-60: WELLNESS
-    { id: 56, name: "Silk Sleep Mask", price: 3200, category: "Wellness", image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=400" },
-    { id: 57, name: "Essential Oil Diffuser", price: 8500, category: "Wellness", image: "https://images.unsplash.com/photo-1602928321679-560bb453f190?q=80&w=400" },
-    { id: 58, name: "Luxury Bath Salts", price: 2800, category: "Wellness", image: "https://images.unsplash.com/photo-1554460300-85f053592c30?q=80&w=400" },
-    { id: 59, name: "Plush Cotton Robe", price: 14500, category: "Wellness", image: "https://images.unsplash.com/photo-1518131394553-c3fd24b07908?q=80&w=400" },
-    { id: 60, name: "Yoga Mat with Strap", price: 9200, category: "Wellness", image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400" },
+    // WELLNESS
+    { id: 56, name: "Silk Sleep Mask", price: 3200, category: "Wellness", image: "Images/Products/Silk Sleep Mask.webp" },
+    { id: 57, name: "Essential Oil Diffuser", price: 8500, category: "Wellness", image: "Images/Products/Essential Oil Diffuser.webp" },
+    { id: 58, name: "Bath Salts", price: 2800, category: "Wellness", image: "Images/Products/Bath Salts.webp" },
+    { id: 59, name: "Plush Cotton Robe", price: 14500, category: "Wellness", image: "Images/Products/Plush Cotton Robe.webp" },
+    { id: 60, name: "Yoga Mat with Strap", price: 9200, category: "Wellness", image: "Images/Products/Yoga Mat with Strap.webp" },
 
-    // 61-65: BABY
-    { id: 61, name: "Organic Cotton Onesie Set", price: 6500, category: "Baby", image: "https://images.unsplash.com/photo-1522771930-78848d9293e8?q=80&w=400" },
-    { id: 62, name: "Silver Baby Rattle", price: 12500, category: "Baby", image: "https://images.unsplash.com/photo-1543362905-f2423ef4e0f8?q=80&w=400" },
-    { id: 63, name: "Cashmere Baby Blanket", price: 18000, category: "Baby", image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=400" },
-    { id: 64, name: "Wooden Block Set", price: 4200, category: "Baby", image: "https://images.unsplash.com/photo-1515488764276-beab7607c1e6?q=80&w=400" },
-    { id: 65, name: "Soft Plush Teddy", price: 3800, category: "Baby", image: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?q=80&w=400" },
+    // BABY
+    { id: 61, name: "Organic Cotton Onesie Set", price: 6500, category: "Baby", image: "Images/Products/Organic Cotton Onesie Set.webp" },
+    { id: 62, name: "Silver Baby Rattle", price: 12500, category: "Baby", image: "Images/Products/Silver Baby Rattle.webp" },
+    { id: 63, name: "Cashmere Baby Blanket", price: 18000, category: "Baby", image: "Images/Products/Cashmere Baby Blanket.webp" },
+    { id: 64, name: "Wooden Block Set", price: 4200, category: "Baby", image: "Images/Products/Wooden Block Set.webp" },
+    { id: 65, name: "Soft Plush Teddy", price: 3800, category: "Baby", image: "Images/Products/Soft Plush Teddy.webp" },
 
     // 66-70: DRINKWARE
-    { id: 66, name: "Crystal Wine Glasses (Set of 2)", price: 11000, category: "Drinkware", image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=400" },
-    { id: 67, name: "Copper Moscow Mule Mugs", price: 7500, category: "Drinkware", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=400" },
-    { id: 68, name: "Insulated Coffee Tumbler", price: 4800, category: "Drinkware", image: "https://images.unsplash.com/photo-1577931957312-58f826dfcf8d?q=80&w=400" },
-    { id: 69, name: "Ceramic Teapot Set", price: 15500, category: "Drinkware", image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=400" },
-    { id: 70, name: "Glass Decanter", price: 18000, category: "Drinkware", image: "https://images.unsplash.com/photo-1582231245981-0846fc40669b?q=80&w=400" },    
+    { id: 66, name: "Crystal Wine Glasses (Set of 2)", price: 11000, category: "Drinkware", image: "Images/Products/Crystal Wine Glasses.webp" },
+    { id: 67, name: "Copper Moscow Mule Mugs", price: 7500, category: "Drinkware", image: "Images/Products/Copper Moscow Mule Mugs.webp" },
+    { id: 68, name: "Insulated Coffee Tumbler", price: 4800, category: "Drinkware", image: "Images/Products/Insulated Coffee Tumbler.webp" },
+    { id: 69, name: "Ceramic Teapot Set", price: 15500, category: "Drinkware", image: "Images/Products/Ceramic Teapot Set.webp" },
+    { id: 70, name: "Glass Decanter", price: 18000, category: "Drinkware", image: "Images/Products/Glass Decanter.webp" },    
 ];
 
 // 2. PACKAGING OPTIONS
 const packagingOptions = [
-    { id: 86, name: "Matte Black Signature Box", price: 1500, category: "Packaging", image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=400" },
-    { id: 87, name: "White & Gold Luxe Box", price: 2200, category: "Packaging", image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=400" },
-    { id: 88, name: "Eco-Kraft Ribbon Box", price: 850, category: "Packaging", image: "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?q=80&w=400" },
-    { id: 89, name: "Wooden Keepsake Crate", price: 3500, category: "Packaging", image: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=400" },
-    { id: 90, name: "Velvet Pouch Set", price: 1200, category: "Packaging", image: "https://images.unsplash.com/photo-1591122947157-26bad3a117d2?q=80&w=400" },
+    { id: 86, name: "Matte Black Signature Box", price: 1500, category: "Packaging", image: "Images/Products/Matte Black Signature Box.webp" },
+    { id: 87, name: "White & Gold Luxe Box", price: 2200, category: "Packaging", image: "Images/Products/White & Gold Luxe Box.webp" },
+    { id: 88, name: "Eco-Kraft Ribbon Box", price: 850, category: "Packaging", image: "Images/Products/Eco-Kraft Ribbon Box.webp" },
+    { id: 89, name: "Wooden Keepsake Crate", price: 3500, category: "Packaging", image: "Images/Products/Wooden Keepsake Crate.webp" },
+    { id: 90, name: "Velvet Pouch Set", price: 1200, category: "Packaging", image: "Images/Products/Velvet Pouch Set.webp" },
 ];
 
 // 3. CARD OPTIONS
 const cardOptions = [
-    { id: 91, name: "Happy Birthday Foil Card", price: 500, category: "Cards", image: "https://images.unsplash.com/photo-1583875762487-5f8f7c718d14?q=80&w=400" },
-    { id: 92, name: "Anniversary Love Card", price: 500, category: "Cards", image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400" },
-    { id: 93, name: "Congratulations Card", price: 500, category: "Cards", image: "https://images.unsplash.com/photo-1606768666853-403c90a981ad?q=80&w=400" },
-    { id: 94, name: "Thank You Note", price: 500, category: "Cards", image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=400" },
-    { id: 95, name: "Blank Elegant Note", price: 350, category: "Cards", image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=400" },
-    { id: 96, name: "Sympathy Card", price: 500, category: "Cards", image: "https://images.unsplash.com/photo-1544145945-f904253d0c71?q=80&w=400" },
-    { id: 97, name: "Get Well Soon Card", price: 500, category: "Cards", image: "https://images.unsplash.com/photo-1593006526979-5f8814c229f9?q=80&w=400" },
-    { id: 98, name: "Welcome Little One", price: 500, category: "Cards", image: "https://images.unsplash.com/photo-1515488764276-beab7607c1e6?q=80&w=400" },
+    { id: 91, name: "Happy Birthday Foil Card", price: 500, category: "Cards", image: "Images/Products/Happy Birthday Foil Card.webp" },
+    { id: 92, name: "Anniversary Love Card", price: 500, category: "Cards", image: "Images/Products/Anniversary Love Card.webp" },
+    { id: 93, name: "Congratulations Card", price: 500, category: "Cards", image: "Images/Products/Congratulations Card.webp" },
+    { id: 94, name: "Thank You Note", price: 500, category: "Cards", image: "Images/Products/Thank You Note.webp" },
+    { id: 95, name: "Blank Elegant Note", price: 350, category: "Cards", image: "Images/Products/Blank Elegant Note.webp" },
+    { id: 96, name: "Sympathy Card", price: 500, category: "Cards", image: "Images/Products/Sympathy Card.webp" },
+    { id: 97, name: "Get Well Soon Card", price: 500, category: "Cards", image: "Images/Products/Get Well Soon Card.webp" },
+    { id: 98, name: "Welcome Little One", price: 500, category: "Cards", image: "Images/Products/Welcome Little One.webp" },
 ];

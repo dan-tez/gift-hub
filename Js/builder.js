@@ -127,7 +127,7 @@ function renderProducts(items) {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-            <div class="img-wrapper"><img src="${product.image}" alt="${product.name}" loading="lazy"></div>
+            <div class="img-wrapper"><img src="/${product.image}" alt="${product.name}" loading="lazy"></div>
             <div class="product-info">
                 <span class="p-category">${product.category}</span>
                 <h3 class="p-name">${product.name}</h3>
@@ -150,7 +150,7 @@ function renderOptionsGrid(optionsArray, containerId, type) {
         card.className = 'selection-card';
         card.id = `${type}-${option.id}`;
         card.innerHTML = `
-            <img src="${option.image}" alt="${option.name}">
+            <img src="/${option.image}" alt="${option.name}">
             <span class="selection-title">${option.name}</span>
             <span class="selection-price"> Ksh ${option.price}</span>
         `;
@@ -205,7 +205,7 @@ function updateBasketUI() {
     basket.forEach(item => {
         basketItemsContainer.innerHTML += `
             <div class="cart-item">
-                <img src="${item.image}">
+                <img src="/${item.image}">
                 <div class="cart-item-details">
                     <span class="cart-item-title">${item.name}</span>
                     <span class="cart-item-price">Ksh ${item.price.toLocaleString()}</span>
@@ -218,7 +218,7 @@ function updateBasketUI() {
     if (selectedPackaging) {
         basketItemsContainer.innerHTML += `
             <div class="cart-item" style="border-left: 3px solid var(--text-primary);">
-                <img src="${selectedPackaging.image}">
+                <img src="/${selectedPackaging.image}">
                 <div class="cart-item-details">
                     <span class="cart-item-title">Box: ${selectedPackaging.name}</span>
                     <span class="cart-item-price"> Ksh ${selectedPackaging.price}</span>
@@ -230,7 +230,7 @@ function updateBasketUI() {
     if (selectedCard) {
         basketItemsContainer.innerHTML += `
             <div class="cart-item" style="border-left: 3px solid var(--text-primary);">
-                <img src="${selectedCard.image}">
+                <img src="/${selectedCard.image}">
                 <div class="cart-item-details">
                     <span class="cart-item-title">Card: ${selectedCard.name}</span>
                     <span class="cart-item-price">Ksh ${selectedCard.price}</span>
@@ -254,7 +254,7 @@ function openReviewModal() {
         basket.forEach(item => {
             modalItemsList.innerHTML += `
                 <div class="review-item">
-                    <img src="${item.image}">
+                    <img src="/${item.image}">
                     <div class="r-details">
                         <span class="r-name">${item.name}</span>
                         <span class="r-price">Ksh ${item.price.toLocaleString()}</span>
@@ -269,7 +269,7 @@ function openReviewModal() {
         modalItemsList.innerHTML += `<h4 class="review-category-title">2. Packaging</h4>`;
         modalItemsList.innerHTML += `
             <div class="review-item">
-                <img src="${selectedPackaging.image}">
+                <img src="/${selectedPackaging.image}">
                 <div class="r-details">
                     <span class="r-name">${selectedPackaging.name}</span>
                     <span class="r-price">ksh ${selectedPackaging.price}</span>
@@ -283,7 +283,7 @@ function openReviewModal() {
         modalItemsList.innerHTML += `<h4 class="review-category-title">3. Card & Note</h4>`;
         modalItemsList.innerHTML += `
             <div class="review-item">
-                <img src="${selectedCard.image}">
+                <img src="/${selectedCard.image}">
                 <div class="r-details">
                     <span class="r-name">${selectedCard.name}</span>
                     <span class="r-price">Ksh ${selectedCard.price}</span>
@@ -338,7 +338,7 @@ if(payBtn) {
                 category: 'Custom Gift',
                 price: total,
                 // Use the selected box image, or a fallback if none
-                image: selectedPackaging ? selectedPackaging.image : 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=400', 
+                image: selectedPackaging ? `/${selectedPackaging.image}`: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=400', 
                 qty: 1
             };
 
