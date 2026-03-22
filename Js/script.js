@@ -17,12 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof products !== 'undefined') {
         populateStorefront(); 
     } else {
-        console.error("Products array not found. Ensure products.js is loaded.");
+        console.error("Products not found. Ensure products.js is loaded.");
     }
 });
 
 
-// 2. DYNAMIC STOREFRONT (Carrefour Architecture)
+// 2. DYNAMIC STOREFRONT
 
 function populateStorefront() {
     const storefrontContainer = document.getElementById('storefront');
