@@ -1,39 +1,70 @@
-# Luxe Gifts 
-
-Luxe Gifts is a high-end, all-in-one e-commerce platform designed for gifting. The project transitions from a traditional retail store to a comprehensive "Gifting Hub," allowing users to browse items and build custom gift boxes.
+# 🎁 Gift Hub
 
 ---
 
+## 🧾 Overview
 
-The core functionality is split into three primary JavaScript files to ensure a clean **Separation of Concerns**.
-
-### 1. `products.js` 
-This file acts as our "Database." It contains the master arrays for all inventory.
-* **The Hub Inventory:** Over 100 products organized into 20+ categories (Watches, Tech, Gourmet, etc.).
-* **Packaging & Cards:** Separate arrays specifically for the "Enhancement" step of the gifting process.
-* **Localized Pricing:** All values are stored as integers representing **KES** (Kenyan Shillings).
-
-### 2. `script.js` 
-This is the heart of the Global Storefront. It handles the dynamic rendering of the homepage and the utility functions.
-* **Dynamic Row Generation:** Instead of hardcoding HTML, the script iterates through `categoriesList` and automatically builds high-density rows for each category.
-* **Modular Loading:** Contains the `loadHeader()` and `loadFooter()` functions. These use the `fetch()` API to inject HTML components into every page, ensuring that a change in the footer reflects site-wide instantly.
-* **Cart Management:** Manages `localStorage` to persist user selections across different pages (Home, Gallery, About).
-
-### 3. `builder.js` 
-This file powers the **3-Step Gift Builder**.
-* **Step Logic:** Manages the State (`currentStep`) to toggle between Product Selection, Packaging, and Personalization.
-* **The "Independent" Filter:** Uses an extraction logic to grab unique categories from the `products` array and renders them as "wrapping" filter buttons.
-* **Basket State:** A local `basket[]` array tracks items added specifically to the custom box before they are bundled into a single "Master Item" for the final checkout.
+**Gift Hub** is a fully client-side web application that simulates an e-commerce experience.  
+Users can browse products, build custom gift baskets, manage a cart, and complete a checkout flow.
 
 ---
 
+## ✨ Core Features
 
-### Gifting Hub Expansion
-The site is optimized for **Average Order Value (AOV)** growth:
-1.  **Selection:** User picks a high-value item (e.g., a Watch).
-2.  **Add-ons:** The UI suggests "Packaging" and "Cards" as natural next steps.
-3.  **The Result:** A single product purchase is transformed into a full "Gifting Experience."
+- Dynamic product listing
+- Interactive shopping cart system
+- Custom gift basket builder
+- Persistent cart using browser storage
+- Checkout flow with form handling
+- Multi-page navigation structure
 
 ---
 
-**Developed as part of the SSE 2210 Project.**
+## 🏗️ Architecture
+
+```
+Js/
+├── builder.js
+├── cart.js
+├── checkout.js
+├── products.js
+└── script.js
+
+Pages/
+├── Actions/
+├── Css/
+├── Header/
+├── Footer/
+├── about.html
+├── contact.html
+├── custom-basket.html
+└── gallery.html
+
+index.html
+```
+
+---
+
+## ⚙️ System Workflow
+
+### 🔹 Product Layer
+- Defined in `products.js`
+- Injected dynamically into UI
+
+### 🔹 Cart Engine
+- Managed in `cart.js`
+- Uses `localStorage` for persistence
+
+### 🔹 Custom Basket
+- Implemented in `builder.js`
+
+### 🔹 Checkout Pipeline
+1. Cart review
+2. Form input collection
+3. Validation
+4. Order confirmation
+
+### 🔹 Global Control
+- `script.js` manages shared UI behaviors
+
+---
