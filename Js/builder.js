@@ -322,7 +322,7 @@ const payBtn = document.getElementById('pay-btn');
 if(payBtn) {
     payBtn.addEventListener('click', () => {
         // Show a premium loading state
-        payBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Securing your box...';
+        payBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading ....';
         payBtn.disabled = true;
 
         setTimeout(() => {
@@ -338,7 +338,7 @@ if(payBtn) {
                 category: 'Custom Gift',
                 price: total,
                 // Use the selected box image, or a fallback if none
-                image: selectedPackaging ? `/${selectedPackaging.image}`: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=400', 
+                image: selectedPackaging ? `/${selectedPackaging.image}`: "Placeholder", 
                 qty: 1
             };
 
