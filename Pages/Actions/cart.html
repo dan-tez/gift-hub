@@ -1,60 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Cart | Luxe Gifts</title>
-    <link rel="stylesheet" href="../Css/cart.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="editorial-body" id="cart-page">
-    
+    <link rel="stylesheet" href="../Css/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="editorial-body" id="cart-page">
     <header id="main-header" class="site-header"></header>
 
     <main class="cart-container">
-        <h1 class="cart-page-title">YOUR CART</h1>
+      <h1 class="cart-page-title">YOUR CART</h1>
 
-        <div class="cart-layout">
-            <div class="cart-items-card" id="cart-items-container">
-                </div>
+      <div class="cart-layout">
+        <div class="cart-items-card" id="cart-items-container"></div>
 
-            <div class="cart-summary-card">
-                <h2>Order Summary</h2>
-                
-                <div class="summary-line">
-                    <span class="s-label">Subtotal</span>
-                    <strong id="summary-subtotal">AED 0</strong>
-                </div>
-                
-                <div class="summary-line discount-line" id="discount-row" style="display: none;">
-                    <span class="s-label">Discount <span id="discount-label"></span></span>
-                    <strong class="text-red" id="summary-discount">-AED 0</strong>
-                </div>
-                
-                <div class="summary-line">
-                    <span class="s-label">Delivery Fee</span>
-                    <strong id="summary-delivery">AED 50</strong>
-                </div>
-                
-                <div class="summary-divider"></div>
-                
-                <div class="summary-line total">
-                    <span class="s-label">Total</span>
-                    <strong id="summary-total">AED 0</strong>
-                </div>
+        <div class="cart-summary-card">
+          <h2>Order Summary</h2>
 
-                <div class="promo-box">
-                    <i class="fa-solid fa-tag promo-icon"></i>
-                    <input type="text" id="promo-input" placeholder="Add promo code">
-                    <button class="apply-btn" id="apply-promo-btn">Apply</button>
-                </div>
+          <div class="summary-line">
+            <span class="s-label">Subtotal</span>
+            <strong id="summary-subtotal">AED 0</strong>
+          </div>
 
-                <button class="btn-solid pill-btn checkout-btn" id="checkout-btn">
-                    Go to Checkout <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
-                </button>
-            </div>
+          <div
+            class="summary-line discount-line"
+            id="discount-row"
+            style="display: none"
+          >
+            <span class="s-label"
+              >Discount <span id="discount-label"></span
+            ></span>
+            <strong class="text-red" id="summary-discount">-AED 0</strong>
+          </div>
+
+          <div class="summary-line">
+            <span class="s-label">Delivery Fee</span>
+            <strong id="summary-delivery">AED 50</strong>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-line total">
+            <span class="s-label">Total</span>
+            <strong id="summary-total">AED 0</strong>
+          </div>
+
+          <div class="promo-box">
+            <i class="fa-solid fa-tag promo-icon"></i>
+            <input type="text" id="promo-input" placeholder="Add promo code" />
+            <button class="apply-btn" id="apply-promo-btn">Apply</button>
+          </div>
+
+          <button class="btn-solid pill-btn checkout-btn" id="checkout-btn">
+            Go to Checkout
+            <i class="fa-solid fa-arrow-right" style="margin-left: 8px"></i>
+          </button>
         </div>
+      </div>
     </main>
 
     <div id="toast"></div>
@@ -63,5 +74,5 @@
     <script src="/Js/products.js"></script>
     <script src="/Js/script.js"></script>
     <script src="/Js/cart.js"></script>
-</body>
+  </body>
 </html>

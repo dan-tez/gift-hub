@@ -1,29 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Component Injection: Ensure the universal header is loaded
     if (typeof loadHeader === 'function') loadHeader();
     
+    // UI Logic: Initialize click listeners for buttons
     setupToggles();
+    
+    // Data Logic: Build the order summary from LocalStorage
     renderCheckoutSummary();
 });
 
+/*
+  Manages the "Active" state of buttons and the visibility of form sections.
+  This keeps the UI clean by only showing relevant fields.
+ */
 function setupToggles() {
-    // Delivery vs Pickup Toggle
     const btnDelivery = document.getElementById('btn-delivery');
     const btnPickup = document.getElementById('btn-pickup');
-    const addressWrapper = document.getElementById('address-wrapper'); // The new wrapper
+    const addressWrapper = document.getElementById('address-wrapper'); 
     
+    // DELIVERY vs PICKUP: Toggles the address input fields
     btnDelivery.addEventListener('click', () => {
         btnDelivery.classList.add('active');
         btnPickup.classList.remove('active');
-        addressWrapper.style.display = 'contents'; // Show address fields
+        addressWrapper.style.display = 'contents'; // Reveal address fields
     });
     
     btnPickup.addEventListener('click', () => {
         btnPickup.classList.add('active');
         btnDelivery.classList.remove('active');
-        addressWrapper.style.display = 'none'; // Hide address fields
+        addressWrapper.style.display = 'none'; // Hide unnecessary fields
     });
 
-    // Payment Method Toggle
+    // PAYMENT METHOD: Toggles between Credit Card and M-Pesa forms
     const btnCard = document.getElementById('btn-card');
     const btnMpesa = document.getElementById('btn-mpesa');
     const formCard = document.getElementById('form-card');
@@ -44,6 +52,14 @@ function setupToggles() {
     });
 }
 
+/* 
+   3. DATA RENDERING (Order Preview)
+*/
+
+/*
+  Pulls the cart data from LocalStorage to show the user what they are paying for.
+  Includes a 'Guard Clause' to redirect empty carts back to the shop.
+*/
 function renderCheckoutSummary() {
     const currentCart = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
     const previewContainer = document.getElementById('checkout-items-preview');
@@ -51,6 +67,7 @@ function renderCheckoutSummary() {
     const deliveryEl = document.getElementById('chk-delivery');
     const totalEl = document.getElementById('chk-total');
 
+    // Prevents users from accessing checkout with an empty cart
     if (currentCart.length === 0) {
         window.location.href = 'cart.html'; 
         return;
@@ -62,96 +79,111 @@ function renderCheckoutSummary() {
     previewContainer.innerHTML = '';
     currentCart.forEach(item => {
         subtotalValue += (item.price * item.qty);
+        // Uses Template Literals to build the mini-preview row
         previewContainer.innerHTML += `
             <div class="mini-chk-item">
                 <div style="display: flex; align-items: center;">
-                    <img src="${item.image}" alt="">
+                    <img src="/${item.image}" alt="">
                     <span>${item.name} (x${item.qty})</span>
                 </div>
-                <strong> ${(item.price * item.qty).toLocaleString()}</strong>
+                <strong>Ksh ${(item.price * item.qty).toLocaleString()}</strong>
             </div>
         `;
     });
 
     const finalTotal = subtotalValue + deliveryFee;
 
+    // DOM Update with currency formatting
     subtotalEl.innerText = `${subtotalValue.toLocaleString()}`;
     deliveryEl.innerText = `${deliveryFee}`;
     totalEl.innerText = `${finalTotal.toLocaleString()}`;
 }
 
-// Validation Function
+/* 
+   4. CONDITIONAL VALIDATION LOGIC
+*/
+
+/*
+  Validates the form based on the selected Delivery and Payment methods.
+  Returns true if the form is valid, false otherwise.
+*/
 function validateForm() {
     const isDelivery = document.getElementById('btn-delivery').classList.contains('active');
     const isMpesa = document.getElementById('btn-mpesa').classList.contains('active');
     
-    // 1. Check Basic Info
+    // Name, Email, Phone are always required
     if (!document.getElementById('chk-name').value.trim() || 
         !document.getElementById('chk-email').value.trim() || 
         !document.getElementById('chk-phone').value.trim()) {
-        if(typeof showToast === 'function') showToast("Please fill in your name, email, and phone number.");
+        showToast("Please fill in your name, email, and phone number.");
         return false;
     }
 
-    // 2. Check Address if Delivery is selected
+    //  Only checks if 'Delivery' is selected
     if (isDelivery) {
         if (!document.getElementById('chk-country').value || 
             !document.getElementById('chk-city').value.trim()) {
-            if(typeof showToast === 'function') showToast("Please provide your delivery country and city.");
+            showToast("Please provide your delivery country and city.");
             return false;
         }
     }
 
-    // 3. Check Payment Fields
+    // Checks M-Pesa phone OR Card details
     if (isMpesa) {
         if (!document.getElementById('chk-mpesa-phone').value.trim()) {
-            if(typeof showToast === 'function') showToast("Please enter your M-Pesa mobile number.");
+            showToast("Please enter your M-Pesa mobile number.");
             return false;
         }
     } else {
+        // Multi-field check for Credit Card details
         if (!document.getElementById('chk-card-name').value.trim() || 
             !document.getElementById('chk-card-num').value.trim() || 
             !document.getElementById('chk-card-mm').value || 
             !document.getElementById('chk-card-yy').value || 
             !document.getElementById('chk-card-cvv').value.trim()) {
-            if(typeof showToast === 'function') showToast("Please fill in all credit card details.");
+            showToast("Please fill in all credit card details.");
             return false;
         }
     }
 
-    // 4. Check Terms & Conditions
+    // Terms and Conditions checkbox
     if (!document.getElementById('terms').checked) {
-        if(typeof showToast === 'function') showToast("Please agree to the Terms and Conditions.");
+        showToast("Please agree to the Terms and Conditions.");
         return false;
     }
 
-    return true; // Passed all checks!
+    return true;
 }
 
-// Handle Submit
+/* 
+   5. TRANSACTION SIMULATION & CLEANUP
+*/
+
 document.getElementById('pay-now-btn').addEventListener('click', function() {
     
-    // Run the validation check first!
-    if (!validateForm()) {
-        return; // Stops the process if validation fails
-    }
+    // RUN VALIDATION: Stops execution if the user missed a field
+    if (!validateForm()) return;
 
     const btn = this;
     const isMpesa = document.getElementById('btn-mpesa').classList.contains('active');
     
+    // FEEDBACK: Disable button and show a loading spinner
     btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
     btn.disabled = true;
 
+    // ASYNCHRONOUS SIMULATION: Mocking a payment gateway response
     setTimeout(() => {
         if (isMpesa) {
-            alert('STK Push sent to your phone. Please enter your M-Pesa PIN to complete the transaction.');
+            alert('STK Push sent to your phone. Please enter your M-Pesa PIN to complete.');
         } else {
-            alert('Card Payment successful! Your luxury items are on their way.');
+            alert('Card Payment successful!');
         }
         
+        // Wipe the cart from LocalStorage after successful purchase
         localStorage.removeItem('luxeCartItems');
         localStorage.setItem('luxeCartCount', 0); 
         
+        // Send the user to the success page
         window.location.href = '/Pages/Actions/success.html'; 
-    }, 2000);
+    }, 2000); // 2-second simulated delay
 });
