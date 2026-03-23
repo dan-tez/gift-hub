@@ -1,16 +1,26 @@
-// State
-let discountPercent = 0;
-const DELIVERY_FEE = 50; // Hardcoded flat fee
+// Represents the current discount as a decimal (e.g., 0.20 for 20%)
+let discountPercent = 0; 
+// Using a 'const' for the fee ensures a "Single Source of Truth" across calculations
+const DELIVERY_FEE = 50; 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // If you are using the global header loader, ensure it runs
+    // Component Injection: Loads the universal header
     if (typeof loadHeader === 'function') loadHeader();
+    
+    // Builds the cart UI from stored data immediately on load
     renderCartPage();
 });
 
+/*
+  The 'renderCartPage' function is a state-synced UI generator. 
+  Every time an item is added, removed, or a promo is applied, 
+  this entire function re-runs to ensure the UI matches the data.
+*/
 function renderCartPage() {
+    // Pulling the stringified array from LocalStorage
     let currentCart = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
     
+    // Mapping JavaScript variables to HTML elements
     const container = document.getElementById('cart-items-container');
     const subtotalEl = document.getElementById('summary-subtotal');
     const totalEl = document.getElementById('summary-total');
@@ -20,7 +30,7 @@ function renderCartPage() {
     const discountAmountEl = document.getElementById('summary-discount');
     const checkoutBtn = document.getElementById('checkout-btn');
 
-    // Handle Empty Cart
+    //  EMPTY STATE GUARD
     if (currentCart.length === 0) {
         container.innerHTML = `
             <div class="empty-cart-display">
@@ -36,18 +46,21 @@ function renderCartPage() {
         return;
     }
 
-    // Render Cart Items
+    // Clear existing items before rebuilding the list
     container.innerHTML = '';
     let subtotalValue = 0;
 
+    // Iterates through each item in the cart array
     currentCart.forEach(item => {
+        // Increment the running subtotal (Price * Quantity)
         subtotalValue += (item.price * item.qty);
 
+        // Create the individual product row element
         const row = document.createElement('div');
         row.className = 'cart-item-row';
         row.innerHTML = `
             <div class="cart-item-img-box">
-                <img src="${item.image}" alt="${item.name}">
+                <img src="/${item.image}" alt="${item.name}">
             </div>
             <div class="cart-item-details">
                 <div class="item-header-row">
@@ -73,7 +86,7 @@ function renderCartPage() {
         container.appendChild(row);
     });
 
-    // Calculate Totals
+    // Conditional rendering based on the Global State
     let discountAmount = 0;
     if (discountPercent > 0) {
         discountAmount = subtotalValue * discountPercent;
@@ -84,33 +97,47 @@ function renderCartPage() {
         discountRow.style.display = 'none';
     }
 
+    //  Net Total after discounts plus shipping
     const finalTotal = (subtotalValue - discountAmount) + DELIVERY_FEE;
 
-    // Update DOM
+    // 8. DATA FORMATTING: Using .toLocaleString() to ensure KES currency formatting
     subtotalEl.innerText = `${subtotalValue.toLocaleString()}`;
     deliveryEl.innerText = `${DELIVERY_FEE}`;
     totalEl.innerText = `${finalTotal.toLocaleString()}`;
     checkoutBtn.disabled = false;
 }
 
-// Global functions
+/* 
+   3. DATA MANAGEMENT (Persistence Logic)
+*/
+
 window.updateItemQty = function(productId, change) {
     let currentCart = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
+    
+    // Find the specific object in the array
     const item = currentCart.find(i => i.id === productId);
     
     if (item) {
         item.qty += change;
+        
+        // SELF-CLEANING: If quantity drops to zero, remove the item entirely
         if (item.qty <= 0) {
             currentCart = currentCart.filter(i => i.id !== productId);
         }
+        
+        // PERSISTENCE: Save changes and re-render the view
         localStorage.setItem('luxeCartItems', JSON.stringify(currentCart));
         renderCartPage();
+        
+        // UI SYNC: Update the badge in the global header
         if (typeof updateCartDisplay === 'function') updateCartDisplay();
     }
 };
 
 window.removeItem = function(productId) {
     let currentCart = JSON.parse(localStorage.getItem('luxeCartItems')) || [];
+    
+    // ARRAY FILTERING: Creates a new array excluding the selected ID
     currentCart = currentCart.filter(i => i.id !== productId);
     
     localStorage.setItem('luxeCartItems', JSON.stringify(currentCart));
@@ -118,32 +145,34 @@ window.removeItem = function(productId) {
     if (typeof updateCartDisplay === 'function') updateCartDisplay();
 };
 
-// --- PROMO CODE LOGIC ---
+/* 
+   4. PROMO & CHECKOUT UX
+*/
+
 document.getElementById('apply-promo-btn')?.addEventListener('click', () => {
     const input = document.getElementById('promo-input');
+    // SANITIZATION: Removes whitespace and forces uppercase for case-insensitive matching
     const code = input.value.trim().toUpperCase();
 
     if (code === 'LUXE20') {
-        discountPercent = 0.20; // 20% off
-        renderCartPage();
+        discountPercent = 0.20; // Sets state to 20%
+        renderCartPage(); // Re-calculates and re-renders
         if (typeof showToast === 'function') showToast('Promo code applied!');
-        input.value = ''; // clear input
+        input.value = ''; 
     } else {
         if (typeof showToast === 'function') showToast('Invalid promo code.');
     }
 });
 
-// Proceed to Checkout Page
 document.getElementById('checkout-btn')?.addEventListener('click', function() {
     const btn = this;
     
-    // Give a brief, premium loading state so it doesn't feel abrupt
-    btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading Secure Checkout...';
+    // FEEDBACK LOOP: Swaps text for a loading spinner to build trust
+    btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading...';
     btn.disabled = true;
 
-    // Small delay to let the animation play before the page transition
+    // PERCEIVED PERFORMANCE: A small delay simulates a "security check" before redirect
     setTimeout(() => {
-        // Redirect the user to your newly created checkout page
         window.location.href = 'checkout.html'; 
     }, 600); 
 });
